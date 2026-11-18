@@ -27,6 +27,8 @@ button.del{background:transparent;color:var(--mut);border:1px solid var(--line);
 #msg{position:sticky;bottom:8px;padding:10px 14px;border-radius:10px;background:var(--card);border:1px solid var(--line);display:none}
 #msg.ok{color:var(--ok)}#msg.err{color:var(--pri)}
 .hint{font-size:12px;color:var(--mut);margin-top:6px}
+.pct{display:flex;align-items:center;gap:10px;margin-top:8px}.pct input[type=range]{padding:0;border:0}.pct b{min-width:44px;text-align:right}
+.tot{font-size:13px;margin-top:6px}.tot.bad{color:var(--pri)}
 .resumo{margin-top:12px;padding:10px;border-radius:10px;background:var(--bg);font-size:13px}
 </style>
 </head>
@@ -47,8 +49,11 @@ button.del{background:transparent;color:var(--mut);border:1px solid var(--line);
 
 <div id="app" style="display:none">
   <div class="card"><h2>Categorias de produtos</h2><div id="cats"></div>
-    <div class="bar"><button class="sec" id="addCat">+ Nova categoria</button></div>
-    <p class="hint">Marque as categorias que a Claudia deve buscar. Cada linha da caixa é uma palavra de busca na Shopee.</p></div>
+    <div class="tot" id="tot"></div>
+    <div class="bar"><button class="sec" id="addCat">+ Nova categoria</button>
+      <button class="sec" id="btnIgual">Dividir igualmente</button>
+      <button class="sec" id="btn100">Ajustar para 100%</button></div>
+    <p class="hint">Marque as categorias que a Claudia deve buscar e use a barra para dosar a % de produtos de cada uma. Cada linha da caixa é uma palavra de busca na Shopee.</p></div>
 
   <div class="card" id="envio"></div>
   <div class="card" id="filtros"></div>
@@ -94,6 +99,35 @@ function normaliza() {
   if (!cfg.categories) cfg.categories = { geral: { enabled: true, keywords: cfg.keywords || [] } };
   cfg.schedule = Object.assign({ active_from: "08:00", active_until: "22:00", interval_minutes: 180, days: [0,1,2,3,4,5,6] }, cfg.schedule || {});
   cfg.filters = cfg.filters || {};
+  if (!cfg.similarity_level) cfg.similarity_level = "medio";
+  if (cfg.similarity_window_days == null) cfg.similarity_window_days = 3;
+  if (cfg.max_per_keyword == null) cfg.max_per_keyword = 1;
+  if (cfg.max_per_shop == null) cfg.max_per_shop = 1;
+  const at = ativas();
+  if (at.length && at.some(([, c]) => c.percent == null)) dividir(true);
+}
+function ativas() { return Object.entries(cfg.categories).filter(([, c]) => c.enabled !== false); }
+function dividir(silencioso) {
+  const at = ativas(); if (!at.length) return;
+  const base = Math.floor(100 / at.length), resto = 100 - base * at.length;
+  at.forEach(([, c], i) => c.percent = base + (i < resto ? 1 : 0));
+  if (!silencioso) render();
+}
+function ajusta100(silencioso) {
+  const at = ativas(); if (!at.length) return;
+  const tot = at.reduce((s, [, c]) => s + (c.percent || 0), 0);
+  if (!tot) return dividir(silencioso);
+  let acc = 0;
+  at.forEach(([, c], i) => {
+    if (i < at.length - 1) { c.percent = Math.round((c.percent || 0) * 100 / tot); acc += c.percent; }
+    else c.percent = Math.max(0, 100 - acc);
+  });
+  if (!silencioso) render();
+}
+function totalPct() {
+  const t = ativas().reduce((s, [, c]) => s + (c.percent || 0), 0), el = $("#tot"); if (!el) return t;
+  el.textContent = "Total das categorias ativas: " + t + "%" + (t === 100 ? " ✓" : " (será ajustado para 100% ao salvar)");
+  el.className = "tot" + (t === 100 ? "" : " bad"); return t;
 }
 
 async function carregar() {
@@ -111,6 +145,10 @@ function render() {
       <label class="chk"><input type="checkbox" data-b="categories.${esc(nome)}.enabled" data-t="bool" ${c.enabled !== false ? "checked" : ""}><b>${esc(nome)}</b></label>
       <button class="del" data-delcat="${esc(nome)}">Remover</button></div>
       <label>Palavras de busca (uma por linha)</label>
+      <div class="pct"><span class="hint" style="margin:0">% dos envios</span>
+        <input type="range" min="0" max="100" step="5" data-b="categories.${esc(nome)}.percent" data-t="num" data-lbl="pct-${esc(nome)}" value="${esc(c.percent ?? 0)}">
+        <b id="pct-${esc(nome)}">${esc(c.percent ?? 0)}%</b></div>
+      <label>Palavras de busca (uma por linha)</label>
       <textarea data-b="categories.${esc(nome)}.keywords" data-t="lines">${esc((c.keywords || []).join("\n"))}</textarea></div>`).join("");
 
   const s = cfg.schedule;
@@ -120,9 +158,18 @@ function render() {
       ${INTERVALOS.map(([v, n]) => `<option value="${v}" ${s.interval_minutes == v ? "selected" : ""}>${n}</option>`).join("")}</select></div>
     <div><label>Ativa a partir de</label><input type="time" data-b="schedule.active_from" value="${esc(s.active_from)}"></div>
     <div><label>Ativa até</label><input type="time" data-b="schedule.active_until" value="${esc(s.active_until)}"></div>
-    <div><label>Máx. por categoria</label><input type="number" min="1" data-b="max_per_category" data-t="num" value="${esc(cfg.max_per_category ?? 2)}"></div>
     <div><label>Repetir produto após (dias)</label><input type="number" min="0" data-b="repeat_after_days" data-t="num" value="${esc(cfg.repeat_after_days)}"></div>
   </div>
+  <h2 style="margin-top:14px">Evitar produtos parecidos</h2><div class="row">
+    <div><label>Rigor contra produtos parecidos</label><select data-b="similarity_level">
+      ${[["baixo","Baixo (só nomes quase iguais)"],["medio","Médio (recomendado)"],["alto","Alto (bem rigoroso)"]].map(([v, n]) => `<option value="${v}" ${cfg.similarity_level === v ? "selected" : ""}>${n}</option>`).join("")}</select></div>
+    <div><label>Lembrar o que foi enviado por (dias)</label><input type="number" min="0" data-b="similarity_window_days" data-t="num" value="${esc(cfg.similarity_window_days)}"></div>
+  </div>
+  <div class="dias" style="margin-bottom:6px">
+    <label><input type="checkbox" data-b="max_per_keyword" data-t="cap" ${(cfg.max_per_keyword ?? 1) <= 1 ? "checked" : ""}>1 produto por tipo (mesma palavra de busca) em cada disparo</label>
+    <label><input type="checkbox" data-b="max_per_shop" data-t="cap" ${(cfg.max_per_shop ?? 1) <= 1 ? "checked" : ""}>1 produto por loja em cada disparo</label>
+  </div>
+  <h2 style="margin-top:14px">Dias ativos</h2>
   <div class="dias">${DIAS.map((n, k) => `<label><input type="checkbox" data-dia="${k}" ${s.days.includes(k) ? "checked" : ""}>${n}</label>`).join("")}</div>
   <div class="resumo" id="resumo"></div>`;
 
@@ -131,7 +178,7 @@ function render() {
   $("#filtros").innerHTML = `<h2>Filtros de qualidade</h2><div class="row">${campos.map(([k, n]) =>
     `<div><label>${n}</label><input type="number" step="any" data-b="filters.${k}" data-t="num" value="${esc(f[k] ?? "")}"></div>`).join("")}</div>
     <p class="hint">Se a Claudia estiver enviando pouco, afrouxe estes filtros: o log do GitHub mostra o que está rejeitando.</p>`;
-  resumo();
+  totalPct(); resumo();
 }
 
 function minutos(t) { const [h, m] = (t || "0:0").split(":").map(Number); return h * 60 + m; }
@@ -141,7 +188,9 @@ function resumo() {
   if (span < 0) span += 1440;
   const disp = Math.floor(span / s.interval_minutes) + 1, prod = disp * (cfg.top_n || 0);
   const need = prod * (cfg.repeat_after_days || 0);
-  el.innerHTML = `≈ <b>${disp}</b> disparos por dia · ≈ <b>${prod}</b> produtos por dia. Com repetição após ${cfg.repeat_after_days} dias, a Claudia precisa de ≈ <b>${need}</b> produtos diferentes aprovados nos filtros; se o estoque for menor, ela vai sobrar menos ofertas.`;
+  const at = ativas(), tot = at.reduce((x, [, c]) => x + (c.percent || 0), 0) || 1;
+  const porCat = at.map(([n, c]) => `${esc(n)} ≈ ${Math.round(prod * (c.percent || 0) / tot)}`).join(" · ");
+  el.innerHTML = `≈ <b>${disp}</b> disparos por dia · ≈ <b>${prod}</b> produtos por dia (${porCat}). Com repetição após ${cfg.repeat_after_days} dias, a Claudia precisa de ≈ <b>${need}</b> produtos diferentes aprovados nos filtros; se o estoque for menor, ela vai enviar menos ofertas.`;
 }
 
 function setPath(path, fn) {
@@ -161,10 +210,13 @@ document.addEventListener("input", e => {
   setPath(el.dataset.b, (o, k) => {
     if (t === "num") o[k] = Number(el.value);
     else if (t === "bool") o[k] = el.checked;
+    else if (t === "cap") o[k] = el.checked ? 1 : 99;
     else if (t === "lines") o[k] = el.value.split("\n").map(s => s.trim()).filter(Boolean);
     else o[k] = el.value;
   });
-  resumo();
+  if (el.dataset.lbl) { const l = document.getElementById(el.dataset.lbl); if (l) l.textContent = el.value + "%"; }
+  if (el.dataset.b.endsWith(".enabled")) { if (ativas().some(([, c]) => c.percent == null)) dividir(true); }
+  totalPct(); resumo();
 });
 
 document.addEventListener("click", e => {
@@ -172,11 +224,13 @@ document.addEventListener("click", e => {
   if (b.dataset.delcat !== undefined) { delete cfg.categories[b.dataset.delcat]; render(); }
 });
 
+$("#btnIgual").onclick = () => dividir();
+$("#btn100").onclick = () => ajusta100();
 $("#addCat").onclick = () => {
   let n = prompt("Nome da nova categoria (ex.: casa, eletronicos):") || "";
   n = n.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   if (!n) return; if (cfg.categories[n]) return msg("Essa categoria já existe.", "err");
-  cfg.categories[n] = { enabled: true, keywords: [] }; render();
+  cfg.categories[n] = { enabled: true, keywords: [], percent: 0 }; render();
 };
 
 function valida() {
@@ -192,7 +246,7 @@ function valida() {
 
 $("#btnSave").onclick = async () => {
   try {
-    valida(); msg("Salvando...");
+    valida(); if (totalPct() !== 100) ajusta100(true); msg("Salvando...");
     const r = await gh("/contents/config.json", { method: "PUT", body: JSON.stringify({
       message: "painel: atualiza configuração da Claudia",
       content: enc(JSON.stringify(cfg, null, 2) + "\n"), sha }) });
