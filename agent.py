@@ -16,6 +16,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -182,55 +183,117 @@ def category_for(product: dict) -> str:
     return "outros"
 
 
+STOPWORDS = {
+    "para", "com", "sem", "por", "uma", "uns", "kit", "original", "oferta", "promocao",
+    "frete", "gratis", "novo", "nova", "pronta", "entrega", "lancamento", "unidade",
+    "unidades", "mais", "top", "premium", "importado", "brasil",
+}
+SIMILARITY_LEVELS = {"baixo": 0.8, "medio": 0.6, "alto": 0.45}
+
+
 def normalized_words(name: str) -> set[str]:
-    words = re.findall(r"[a-z0-9]+", str(name).lower())
-    return {word for word in words if len(word) > 2}
+    """Palavras relevantes do nome: sem acento, sem tamanhos (30ml, 500g) e sem palavras de marketing."""
+    text = unicodedata.normalize("NFD", str(name).lower())
+    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
+    words = re.findall(r"[a-z0-9]+", text)
+    return {w for w in words
+            if len(w) > 2 and not re.fullmatch(r"\d+[a-z]{0,3}", w) and w not in STOPWORDS}
 
 
-def too_similar(product: dict, selected: list[dict]) -> bool:
+def similarity(a: set[str], b: set[str]) -> float:
+    if not a or not b:
+        return 0.0
+    inter = len(a & b)
+    # pega tanto nomes quase iguais (Jaccard) quanto um nome contido no outro (sobreposição)
+    return max(inter / len(a | b), 0.9 * inter / min(len(a), len(b)))
+
+
+def too_similar(product: dict, selected: list[dict], recent_sets=()) -> bool:
+    """Parecido com algo já escolhido neste disparo ou enviado recentemente?"""
     words = normalized_words(product.get("productName", ""))
     if not words:
         return False
-    for previous in selected:
-        other = normalized_words(previous.get("productName", ""))
-        union = words | other
-        similarity = len(words & other) / len(union) if union else 0
-        if similarity >= CFG.get("similarity_threshold", 0.72):
-            return True
-    return False
+    limit = SIMILARITY_LEVELS.get(CFG.get("similarity_level", "medio"), 0.6)
+    others = [normalized_words(p.get("productName", "")) for p in selected] + list(recent_sets)
+    return any(similarity(words, other) >= limit for other in others)
 
 
-def choose_products(products: list[dict], limit: int) -> list[dict]:
-    """Escolhe por score, evitando excesso de produtos da mesma categoria."""
-    ranked = sorted(products, key=score, reverse=True)
-    selected = []
-    category_counts = {}
-    max_per_category = CFG.get("max_per_category", 2)
+def category_weights(eligible: list[dict]) -> dict[str, float] | None:
+    """Percentuais por categoria (só das ativas e com produto elegível). None = formato antigo."""
+    cats = CFG.get("categories") or {}
+    if not any("percent" in c for c in cats.values()):
+        return None
+    have = {category_for(p) for p in eligible}
+    weights = {name: float(c.get("percent") or 0) for name, c in cats.items()
+               if c.get("enabled", True) and c.get("keywords") and name in have}
+    weights = {k: v for k, v in weights.items() if v > 0}
+    return weights or None
 
-    for product in ranked:
-        category = category_for(product)
-        if category_counts.get(category, 0) >= max_per_category:
-            continue
-        if too_similar(product, selected):
-            continue
-        selected.append(product)
-        category_counts[category] = category_counts.get(category, 0) + 1
-        if len(selected) >= limit:
-            break
 
-    # Se a diversidade impedir completar a quantidade, aproveita os próximos
-    # melhores sem repetir nomes muito semelhantes.
-    if len(selected) < limit:
-        selected_ids = {str(p.get("itemId")) for p in selected}
-        for product in ranked:
-            if str(product.get("itemId")) in selected_ids:
-                continue
-            if too_similar(product, selected):
-                continue
-            selected.append(product)
-            selected_ids.add(str(product.get("itemId")))
-            if len(selected) >= limit:
+def allocate_quotas(weights: dict[str, float], limit: int, credit: dict) -> dict[str, int]:
+    """Divide os produtos do disparo por categoria. As frações sobram como 'crédito' para o
+    próximo disparo, então a média ao longo do tempo respeita os percentuais."""
+    total = sum(weights.values())
+    for c, w in weights.items():
+        credit[c] = credit.get(c, 0.0) + limit * w / total
+    quotas = {c: max(0, int(credit[c])) for c in weights}
+    order = sorted(weights, key=lambda c: (max(credit[c] - int(credit[c]), 0), weights[c]), reverse=True)
+    while sum(quotas.values()) < limit:
+        for c in order:
+            quotas[c] += 1
+            if sum(quotas.values()) >= limit:
                 break
+    while sum(quotas.values()) > limit:
+        for c in reversed(order):
+            if quotas[c] > 0:
+                quotas[c] -= 1
+                break
+    return quotas
+
+
+def choose_products(products: list[dict], limit: int, recent_sets=(), quotas=None) -> list[dict]:
+    """Escolhe pelo score respeitando: cotas por categoria, no máximo N do mesmo tipo (palavra de
+    busca) e da mesma loja por disparo, e nada parecido com o que já foi escolhido/enviado."""
+    ranked = sorted(products, key=score, reverse=True)
+    selected: list[dict] = []
+    chosen_ids: set[str] = set()
+    cat_n, kw_n, shop_n = Counter(), Counter(), Counter()
+    max_kw, max_shop = CFG.get("max_per_keyword", 1), CFG.get("max_per_shop", 1)
+    legacy_cap = CFG.get("max_per_category", 2)
+
+    def keyword_of(p):
+        return (p.get("_matched_keywords") or [""])[0]
+
+    def shop_of(p):
+        return str(p.get("shopName") or p.get("itemId"))
+
+    def take(p):
+        selected.append(p)
+        chosen_ids.add(str(p.get("itemId")))
+        cat_n[category_for(p)] += 1
+        kw_n[keyword_of(p)] += 1
+        shop_n[shop_of(p)] += 1
+
+    def run_pass(respect_quota: bool, respect_type_shop: bool) -> None:
+        for p in ranked:
+            if len(selected) >= limit:
+                return
+            if str(p.get("itemId")) in chosen_ids:
+                continue
+            cat = category_for(p)
+            if respect_quota:
+                cap = quotas.get(cat, 0) if quotas is not None else legacy_cap
+                if cat_n[cat] >= cap:
+                    continue
+            if respect_type_shop and (kw_n[keyword_of(p)] >= max_kw or shop_n[shop_of(p)] >= max_shop):
+                continue
+            if too_similar(p, selected, recent_sets):
+                continue
+            take(p)
+
+    run_pass(True, True)    # 1) tudo respeitado
+    run_pass(True, False)   # 2) mantém as cotas, relaxa tipo/loja
+    run_pass(False, False)  # 3) completa com os melhores restantes (ainda sem parecidos)
     return selected
 
 
@@ -404,23 +467,28 @@ def send(product: dict, message: str) -> None:
 
 
 def load_state() -> dict:
-    empty = {"postados": {}, "last_dispatch": None}
+    def empty():
+        return {"postados": {}, "last_dispatch": None, "recentes": [], "credito": {}}
     if not STATE_FILE.exists():
-        return empty
+        return empty()
     try:
         data = json.loads(STATE_FILE.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         print("Aviso: histórico inválido/indisponível; iniciando histórico vazio.")
-        return empty
+        return empty()
     if "postados" not in data:  # formato antigo: {itemId: timestamp}
         data = {"postados": data, "last_dispatch": None}
     data["postados"] = {k: v for k, v in data["postados"].items() if isinstance(v, (int, float))}
     data.setdefault("last_dispatch", None)
+    data.setdefault("recentes", [])
+    data.setdefault("credito", {})
     return data
 
 
 def save_state(state: dict, now: float) -> None:
     state["postados"] = {k: v for k, v in state["postados"].items() if now - v < 30 * 86400}
+    janela = CFG.get("similarity_window_days", 3) * 86400
+    state["recentes"] = [r for r in state["recentes"] if now - r["t"] <= janela][-300:]
     tmp = STATE_FILE.with_suffix(".tmp")
     tmp.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
     tmp.replace(STATE_FILE)
@@ -517,7 +585,17 @@ def main() -> None:
         else:
             eligible.append(product)
 
-    selected = choose_products(eligible, limit)
+    window = CFG.get("similarity_window_days", 3) * 86400
+    recent_sets = [normalized_words(r["n"]) for r in state["recentes"] if now - r["t"] <= window]
+    weights = category_weights(eligible)
+    quotas = allocate_quotas(weights, limit, state["credito"]) if weights else None
+    selected = choose_products(eligible, limit, recent_sets, quotas)
+    if quotas is not None:
+        print("Cotas por categoria: " + ", ".join(f"{c} {q}" for c, q in quotas.items()))
+        got = Counter(category_for(p) for p in selected)
+        print("Escolhidos por categoria: " + (", ".join(f"{c} {n}" for c, n in got.items()) or "nenhum"))
+        for c in weights:  # acerta o crédito com o que realmente saiu (limitado para evitar "explosões")
+            state["credito"][c] = max(-2.0, min(2.0, state["credito"][c] - got.get(c, 0)))
     print(f"{len(found)} produtos encontrados; {len(eligible)} aprovados; "
           f"{len(selected)} selecionados; {successful_searches}/{total_searches} buscas concluídas.")
     if rejected:
@@ -549,6 +627,7 @@ def main() -> None:
             print(f"Falha ao enviar o item {product['itemId']}: {exc}")
             continue
         state["postados"][str(product["itemId"])] = now
+        state["recentes"].append({"n": str(product.get("productName", "")), "t": now})
         sent += 1
         save_state(state, now)  # grava a cada envio: nada se perde se a rodada cair no meio
         time.sleep(CFG.get("send_pause_seconds", 2))
