@@ -1,0 +1,15 @@
+{
+  "keywords": ["skincare", "protetor solar facial", "sérum facial", "maquiagem", "base líquida", "batom", "shampoo", "hidratante corporal", "escova alisadora", "esfoliante"],
+  "sort_type": 2,
+  "limit_per_keyword": 30,
+  "top_n": 4,
+  "repeat_after_days": 7,
+  "sub_ids": ["achadinhos", "agente"],
+  "filters": {
+    "min_discount": 25,
+    "min_rating": 4.7,
+    "min_sales": 200,
+    "min_commission_rate": 0.05,
+    "max_price": 150
+  }
+}
