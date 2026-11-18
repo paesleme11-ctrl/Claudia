@@ -3,7 +3,7 @@ name: Claudia
 on:
   schedule:
     # Acorda a cada 30 min; o config.json decide se há disparo (horário e intervalo).
-    - cron: "*/30 * * * *"
+   - cron: "7,27,47 * * * *"
   workflow_dispatch:
     inputs:
       force:
