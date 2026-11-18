@@ -23,7 +23,8 @@
         "protetor solar facial",
         "sérum facial",
         "esfoliante"
-      ]
+      ],
+      "percent": 16
     },
     "maquiagem": {
       "enabled": true,
@@ -31,7 +32,8 @@
         "maquiagem",
         "base líquida",
         "batom"
-      ]
+      ],
+      "percent": 11
     },
     "cabelo": {
       "enabled": true,
@@ -40,7 +42,8 @@
         "escova alisadora",
         "prancha",
         "secador"
-      ]
+      ],
+      "percent": 21
     },
     "corpo": {
       "enabled": true,
@@ -48,7 +51,8 @@
         "hidratante corporal",
         "perfume",
         "body splash"
-      ]
+      ],
+      "percent": 11
     },
     "roupas": {
       "enabled": true,
@@ -57,13 +61,15 @@
         "roupa de academia",
         "lingerie",
         "sapatos e sandalias"
-      ]
+      ],
+      "percent": 11
     },
     "casa-e-decoracao": {
       "enabled": true,
       "keywords": [
         "decoração"
-      ]
+      ],
+      "percent": 30
     }
   },
   "sort_type": 2,
@@ -91,5 +97,9 @@
   },
   "similarity_threshold": 0.72,
   "request_pause_seconds": 1,
-  "send_pause_seconds": 2
+  "send_pause_seconds": 2,
+  "similarity_level": "medio",
+  "similarity_window_days": 3,
+  "max_per_keyword": 1,
+  "max_per_shop": 1
 }
