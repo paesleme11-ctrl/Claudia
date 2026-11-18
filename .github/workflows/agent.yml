@@ -2,8 +2,7 @@ name: Agente Shopee
 
 on:
   schedule:
-    # GitHub Actions usa UTC. Executa nos minutos 0, 20 e 40 de cada hora.
-    - cron: "*/20 * * * *"
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
 
 permissions:
