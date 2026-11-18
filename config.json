@@ -77,10 +77,10 @@
   ],
   "filters": {
     "min_discount": 25,
-    "max_discount": 45,
+    "max_discount": 60,
     "min_rating": 4.7,
-    "min_sales": 1000,
-    "min_commission_rate": 0.05,
+    "min_sales": 700,
+    "min_commission_rate": 0.1,
     "max_price": 300
   },
   "score_weights": {
