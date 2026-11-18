@@ -67,9 +67,15 @@
     "20299321793": 1795041632.6855838,
     "58254110507": 1795041632.6855838,
     "21198286873": 1795041632.6855838,
-    "58203770266": 1795041632.6855838
+    "58203770266": 1795041632.6855838,
+    "22401382655": 1795042120.1530404,
+    "55761873036": 1795042120.1530404,
+    "22098878065": 1795042120.1530404,
+    "23396807542": 1795042120.1530404,
+    "58256741801": 1795042120.1530404,
+    "43103443602": 1795042120.1530404
   },
-  "last_dispatch": 1795041632.6855838,
+  "last_dispatch": 1795042120.1530404,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -94,14 +100,38 @@
     {
       "n": "EZ Vip Rose - Eau de Parfum 100ml LANÇAMENTO EXCLUSIVO",
       "t": 1795041632.6855838
+    },
+    {
+      "n": "Kit Shampoo + Condicionador Hidra Multy Kids Salon Line 300ml",
+      "t": 1795042120.1530404
+    },
+    {
+      "n": "[OFFICIAL] Dr.Reju-All Advanced PDRN Copper Peptide Serum 30ml",
+      "t": 1795042120.1530404
+    },
+    {
+      "n": "Chinelo Bandeirinha Original Sandalia De Dedo Unissex Verão. Presente para o Dia dos Pais",
+      "t": 1795042120.1530404
+    },
+    {
+      "n": "Modelador Cinta Bore Suplex Sem Bojo Redutora De Medidas Alta Com Compressão Alça Reforçada",
+      "t": 1795042120.1530404
+    },
+    {
+      "n": "Patins Infantil 4 Rodas Com Luz De Led Com Kit Proteção ou Sem Proteção Envia Todo Brasil Rapido",
+      "t": 1795042120.1530404
+    },
+    {
+      "n": "FADVAN Cílios Cor Marrom YY 3DW 4DW 5DW Forma Extensões De Postiços Naturais",
+      "t": 1795042120.1530404
     }
   ],
   "credito": {
-    "skincare": -0.040000000000000036,
-    "maquiagem": -0.33999999999999997,
-    "cabelo": 0.26,
-    "corpo": -1.3399999999999999,
-    "roupas": 0.66,
+    "skincare": 0.3314285714285714,
+    "maquiagem": -0.39714285714285713,
+    "cabelo": 0.06000000000000005,
+    "corpo": -0.397142857142857,
+    "roupas": -0.39714285714285724,
     "casa-e-decoracao": 0.8
   }
 }
