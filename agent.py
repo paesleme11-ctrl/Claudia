@@ -326,7 +326,8 @@ def build_message(product: dict, link: str) -> str:
         "",
         "Encontrei esse achadinho e vim compartilhar com você! 🥰",
         "",
-        f"🛍️ <a href=\"{html.escape(link, quote=True)}\">VER OFERTA NA SHOPEE</a>",
+        "🛍️ COMPRE AQUI:",
+        html.escape(link),
     ])
     return "\n".join(lines)
 
