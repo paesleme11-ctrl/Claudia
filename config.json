@@ -82,10 +82,10 @@
     "agente"
   ],
   "filters": {
-    "min_discount": 25,
+    "min_discount": 15,
     "max_discount": 60,
     "min_rating": 4.7,
-    "min_sales": 700,
+    "min_sales": 1000,
     "min_commission_rate": 0.1,
     "max_price": 300
   },
