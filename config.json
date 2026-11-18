@@ -1,75 +1,45 @@
 {
-  "keywords": [
-    "skincare",
-    "protetor solar facial",
-    "sérum facial",
-    "maquiagem",
-    "base líquida",
-    "batom",
-    "shampoo",
-    "hidratante corporal",
-    "escova alisadora",
-    "esfoliante"
-  ],
+  "name": "Claudia",
+  "timezone": "America/Sao_Paulo",
+  "schedule": {
+    "active_from": "08:00",
+    "active_until": "22:00",
+    "interval_minutes": 180,
+    "days": [0, 1, 2, 3, 4, 5, 6]
+  },
+  "categories": {
+    "skincare": {
+      "enabled": true,
+      "keywords": ["skincare", "protetor solar facial", "sérum facial", "esfoliante"]
+    },
+    "maquiagem": {
+      "enabled": true,
+      "keywords": ["maquiagem", "base líquida", "batom"]
+    },
+    "cabelo": {
+      "enabled": true,
+      "keywords": ["shampoo", "escova alisadora"]
+    },
+    "corpo": {
+      "enabled": true,
+      "keywords": ["hidratante corporal"]
+    }
+  },
   "sort_type": 2,
   "limit_per_keyword": 30,
-  "top_n": 6,
+  "top_n": 4,
+  "max_per_category": 2,
   "repeat_after_days": 7,
-  "sub_ids": [
-    "achadinhos",
-    "agente"
-  ],
+  "sub_ids": ["achadinhos", "agente"],
   "filters": {
     "min_discount": 25,
+    "max_discount": 45,
     "min_rating": 4.7,
     "min_sales": 200,
     "min_commission_rate": 0.05,
-    "max_price": 150,
-    "max_discount": 45
+    "max_price": 150
   },
-  "score_weights": {
-    "commission": 45,
-    "sales": 35,
-    "rating": 15,
-    "discount": 5
-  },
-  "category_keywords": {
-    "skincare": [
-      "skincare",
-      "sérum",
-      "serum",
-      "protetor solar",
-      "hidratante facial",
-      "esfoliante",
-      "limpeza facial"
-    ],
-    "maquiagem": [
-      "maquiagem",
-      "base ",
-      "batom",
-      "máscara de cílios",
-      "rímel",
-      "blush",
-      "corretivo",
-      "pó compacto"
-    ],
-    "cabelo": [
-      "shampoo",
-      "condicionador",
-      "escova",
-      "alisadora",
-      "secador",
-      "chapinha",
-      "máscara capilar"
-    ],
-    "corpo": [
-      "hidratante corporal",
-      "esfoliante corporal",
-      "creme para mãos",
-      "desodorante"
-    ]
-  },
-  "max_per_category": 2,
+  "score_weights": { "commission": 45, "sales": 35, "rating": 15, "discount": 5 },
   "similarity_threshold": 0.72,
   "request_pause_seconds": 1,
   "send_pause_seconds": 2

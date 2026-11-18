@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claudia — Painel</title>
+<style>
+:root{--bg:#fff7fb;--card:#fff;--ink:#2b2130;--mut:#7a6b80;--pri:#d6336c;--line:#f0dbe6;--ok:#2f9e44}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1420;--card:#251c2d;--ink:#f3eaf6;--mut:#a899b0;--pri:#f06595;--line:#3a2e45;--ok:#69db7c}}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:880px;padding:16px;font:15px/1.4 system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink)}
+h1{margin:4px 0 2px;font-size:22px}h2{font-size:16px;margin:0 0 10px}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+label{display:block;font-size:12px;color:var(--mut);margin:8px 0 3px}
+input,select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--ink);font:inherit}
+textarea{min-height:84px;resize:vertical}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+button{border:0;border-radius:9px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;background:var(--pri);color:#fff}
+button.sec{background:transparent;color:var(--pri);border:1px solid var(--pri)}
+button.del{background:transparent;color:var(--mut);border:1px solid var(--line);padding:6px 10px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.cat{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:10px}
+.dias{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.dias label,.chk{display:flex;align-items:center;gap:5px;margin:0;font-size:14px;color:var(--ink)}
+.dias input,.chk input{width:auto}
+#msg{position:sticky;bottom:8px;padding:10px 14px;border-radius:10px;background:var(--card);border:1px solid var(--line);display:none}
+#msg.ok{color:var(--ok)}#msg.err{color:var(--pri)}
+.hint{font-size:12px;color:var(--mut);margin-top:6px}
+.resumo{margin-top:12px;padding:10px;border-radius:10px;background:var(--bg);font-size:13px}
+</style>
+</head>
+<body>
+<h1>💗 Claudia</h1>
+<p class="sub">Painel de controle: categorias, produtos por disparo e intervalo entre disparos.</p>
+
+<div class="card">
+  <h2>Conexão com o GitHub</h2>
+  <div class="row">
+    <div><label>Repositório (usuario/repo)</label><input id="repo" placeholder="gustavo/claudia"></div>
+    <div><label>Token (fica só neste navegador)</label><input id="token" type="password" placeholder="github_pat_..."></div>
+    <div><label>Arquivo do workflow</label><input id="wf" value="agent.yml"></div>
+  </div>
+  <div class="bar"><button id="btnLoad">Carregar configuração</button></div>
+  <p class="hint">Token fine-grained só deste repositório, com permissões Contents e Actions em "Read and write".</p>
+</div>
+
+<div id="app" style="display:none">
+  <div class="card"><h2>Categorias de produtos</h2><div id="cats"></div>
+    <div class="bar"><button class="sec" id="addCat">+ Nova categoria</button></div>
+    <p class="hint">Marque as categorias que a Claudia deve buscar. Cada linha da caixa é uma palavra de busca na Shopee.</p></div>
+
+  <div class="card" id="envio"></div>
+  <div class="card" id="filtros"></div>
+
+  <div class="card"><h2>Disparar agora</h2>
+    <div class="row"><div><label>Produtos neste disparo</label><input id="agoraQtd" type="number" min="1" placeholder="padrão"></div></div>
+    <div class="bar"><button class="sec" id="btnAgora">Disparar agora</button></div>
+    <p class="hint">Ignora horário e intervalo e usa a configuração já salva no GitHub (salve antes, se mudou algo).</p></div>
+
+  <div class="bar"><button id="btnSave">💾 Salvar no GitHub</button></div>
+</div>
+<div id="msg"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const DIAS = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+const INTERVALOS = [[30,"30 min"],[60,"1 hora"],[90,"1h30"],[120,"2 horas"],[180,"3 horas"],[240,"4 horas"],[360,"6 horas"],[480,"8 horas"]];
+let cfg = null, sha = null;
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const enc = s => btoa(unescape(encodeURIComponent(s)));
+const dec = b => decodeURIComponent(escape(atob(b.replace(/\n/g, ""))));
+
+function msg(t, cls) { const m = $("#msg"); m.textContent = t; m.className = cls || ""; m.style.display = "block"; }
+function conn() {
+  const repo = $("#repo").value.trim(), token = $("#token").value.trim();
+  if (!repo || !token) throw new Error("Preencha repositório e token.");
+  try { localStorage.setItem("claudia_repo", repo); localStorage.setItem("claudia_token", token); localStorage.setItem("claudia_wf", $("#wf").value.trim()); } catch (e) {}
+  return { repo, token };
+}
+async function gh(path, opts = {}) {
+  const { repo, token } = conn();
+  const r = await fetch("https://api.github.com/repos/" + repo + path, {
+    ...opts,
+    headers: { Authorization: "Bearer " + token, Accept: "application/vnd.github+json", "Content-Type": "application/json" }
+  });
+  if (!r.ok) { const j = await r.json().catch(() => ({})); throw new Error(r.status + " " + (j.message || "")); }
+  return r.status === 204 ? null : r.json();
+}
+
+function normaliza() {
+  // aceita configs antigos (lista "keywords") convertendo para categorias
+  if (!cfg.categories) cfg.categories = { geral: { enabled: true, keywords: cfg.keywords || [] } };
+  cfg.schedule = Object.assign({ active_from: "08:00", active_until: "22:00", interval_minutes: 180, days: [0,1,2,3,4,5,6] }, cfg.schedule || {});
+  cfg.filters = cfg.filters || {};
+}
+
+async function carregar() {
+  try {
+    msg("Carregando...");
+    const f = await gh("/contents/config.json");
+    sha = f.sha; cfg = JSON.parse(dec(f.content)); normaliza();
+    $("#app").style.display = "block"; render(); msg("Configuração carregada.", "ok");
+  } catch (e) { msg("Erro: " + e.message, "err"); }
+}
+
+function render() {
+  $("#cats").innerHTML = Object.entries(cfg.categories).map(([nome, c]) => `
+    <div class="cat"><div class="bar" style="justify-content:space-between;margin:0">
+      <label class="chk"><input type="checkbox" data-b="categories.${esc(nome)}.enabled" data-t="bool" ${c.enabled !== false ? "checked" : ""}><b>${esc(nome)}</b></label>
+      <button class="del" data-delcat="${esc(nome)}">Remover</button></div>
+      <label>Palavras de busca (uma por linha)</label>
+      <textarea data-b="categories.${esc(nome)}.keywords" data-t="lines">${esc((c.keywords || []).join("\n"))}</textarea></div>`).join("");
+
+  const s = cfg.schedule;
+  $("#envio").innerHTML = `<h2>Envio</h2><div class="row">
+    <div><label>Produtos por disparo</label><input type="number" min="1" data-b="top_n" data-t="num" value="${esc(cfg.top_n)}"></div>
+    <div><label>Intervalo entre disparos</label><select data-b="schedule.interval_minutes" data-t="num">
+      ${INTERVALOS.map(([v, n]) => `<option value="${v}" ${s.interval_minutes == v ? "selected" : ""}>${n}</option>`).join("")}</select></div>
+    <div><label>Ativa a partir de</label><input type="time" data-b="schedule.active_from" value="${esc(s.active_from)}"></div>
+    <div><label>Ativa até</label><input type="time" data-b="schedule.active_until" value="${esc(s.active_until)}"></div>
+    <div><label>Máx. por categoria</label><input type="number" min="1" data-b="max_per_category" data-t="num" value="${esc(cfg.max_per_category ?? 2)}"></div>
+    <div><label>Repetir produto após (dias)</label><input type="number" min="0" data-b="repeat_after_days" data-t="num" value="${esc(cfg.repeat_after_days)}"></div>
+  </div>
+  <div class="dias">${DIAS.map((n, k) => `<label><input type="checkbox" data-dia="${k}" ${s.days.includes(k) ? "checked" : ""}>${n}</label>`).join("")}</div>
+  <div class="resumo" id="resumo"></div>`;
+
+  const f = cfg.filters;
+  const campos = [["min_discount","Desconto mín. (%)"],["max_discount","Desconto máx. (%)"],["min_rating","Nota mín."],["min_sales","Vendas mín."],["min_commission_rate","Comissão mín. (0.05 = 5%)"],["max_price","Preço máx. (R$)"]];
+  $("#filtros").innerHTML = `<h2>Filtros de qualidade</h2><div class="row">${campos.map(([k, n]) =>
+    `<div><label>${n}</label><input type="number" step="any" data-b="filters.${k}" data-t="num" value="${esc(f[k] ?? "")}"></div>`).join("")}</div>
+    <p class="hint">Se a Claudia estiver enviando pouco, afrouxe estes filtros: o log do GitHub mostra o que está rejeitando.</p>`;
+  resumo();
+}
+
+function minutos(t) { const [h, m] = (t || "0:0").split(":").map(Number); return h * 60 + m; }
+function resumo() {
+  const el = $("#resumo"); if (!el) return;
+  const s = cfg.schedule; let span = minutos(s.active_until) - minutos(s.active_from);
+  if (span < 0) span += 1440;
+  const disp = Math.floor(span / s.interval_minutes) + 1, prod = disp * (cfg.top_n || 0);
+  const need = prod * (cfg.repeat_after_days || 0);
+  el.innerHTML = `≈ <b>${disp}</b> disparos por dia · ≈ <b>${prod}</b> produtos por dia. Com repetição após ${cfg.repeat_after_days} dias, a Claudia precisa de ≈ <b>${need}</b> produtos diferentes aprovados nos filtros; se o estoque for menor, ela vai sobrar menos ofertas.`;
+}
+
+function setPath(path, fn) {
+  const p = path.split("."); let o = cfg;
+  for (let i = 0; i < p.length - 1; i++) o = o[p[i]];
+  fn(o, p[p.length - 1]);
+}
+
+document.addEventListener("input", e => {
+  const el = e.target;
+  if (el.dataset.dia !== undefined) {
+    const k = Number(el.dataset.dia), set = new Set(cfg.schedule.days);
+    el.checked ? set.add(k) : set.delete(k); cfg.schedule.days = [...set].sort(); return;
+  }
+  if (!el.dataset.b) return;
+  const t = el.dataset.t;
+  setPath(el.dataset.b, (o, k) => {
+    if (t === "num") o[k] = Number(el.value);
+    else if (t === "bool") o[k] = el.checked;
+    else if (t === "lines") o[k] = el.value.split("\n").map(s => s.trim()).filter(Boolean);
+    else o[k] = el.value;
+  });
+  resumo();
+});
+
+document.addEventListener("click", e => {
+  const b = e.target;
+  if (b.dataset.delcat !== undefined) { delete cfg.categories[b.dataset.delcat]; render(); }
+});
+
+$("#addCat").onclick = () => {
+  let n = prompt("Nome da nova categoria (ex.: casa, eletronicos):") || "";
+  n = n.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  if (!n) return; if (cfg.categories[n]) return msg("Essa categoria já existe.", "err");
+  cfg.categories[n] = { enabled: true, keywords: [] }; render();
+};
+
+function valida() {
+  const ativas = Object.entries(cfg.categories).filter(([, c]) => c.enabled !== false);
+  if (!ativas.length) throw new Error("Ative pelo menos uma categoria.");
+  for (const [n, c] of ativas) if (!c.keywords.length) throw new Error(`A categoria "${n}" está ativa mas sem palavras de busca.`);
+  const s = cfg.schedule;
+  if (!/^\d{2}:\d{2}$/.test(s.active_from || "") || !/^\d{2}:\d{2}$/.test(s.active_until || "")) throw new Error("Defina o horário de início e fim.");
+  if (!s.days.length) throw new Error("Marque pelo menos um dia da semana.");
+  if (!(cfg.top_n >= 1)) throw new Error("Produtos por disparo precisa ser pelo menos 1.");
+  if (cfg.filters.min_discount > cfg.filters.max_discount) throw new Error("Desconto mínimo maior que o máximo.");
+}
+
+$("#btnSave").onclick = async () => {
+  try {
+    valida(); msg("Salvando...");
+    const r = await gh("/contents/config.json", { method: "PUT", body: JSON.stringify({
+      message: "painel: atualiza configuração da Claudia",
+      content: enc(JSON.stringify(cfg, null, 2) + "\n"), sha }) });
+    sha = r.content.sha; msg("Salvo! A Claudia usa a nova configuração na próxima rodada.", "ok");
+  } catch (e) { msg("Erro: " + e.message, "err"); }
+};
+
+$("#btnAgora").onclick = async () => {
+  try {
+    msg("Disparando...");
+    const info = await gh("");
+    const wf = encodeURIComponent($("#wf").value.trim() || "agent.yml");
+    await gh("/actions/workflows/" + wf + "/dispatches", { method: "POST", body: JSON.stringify({
+      ref: info.default_branch, inputs: { force: "true", quantidade: String($("#agoraQtd").value || "") } }) });
+    msg("Pedido enviado! Em 1–2 minutos as ofertas chegam no Telegram.", "ok");
+  } catch (e) { msg("Erro: " + e.message, "err"); }
+};
+
+$("#btnLoad").onclick = carregar;
+try {
+  $("#repo").value = localStorage.getItem("claudia_repo") || "";
+  $("#token").value = localStorage.getItem("claudia_token") || "";
+  $("#wf").value = localStorage.getItem("claudia_wf") || "agent.yml";
+} catch (e) {}
+</script>
+</body>
+</html>
