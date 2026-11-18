@@ -111,7 +111,7 @@ def short_link(url: str) -> str | None:
 def passes(product: dict) -> bool:
     filters = CFG["filters"]
     return (
-        num(product.get("priceDiscountRate")) >= filters["min_discount"]
+        filters["min_discount"] <= num(product.get("priceDiscountRate")) <= filters["max_discount"]
         and num(product.get("ratingStar")) >= filters["min_rating"]
         and num(product.get("sales")) >= filters["min_sales"]
         and num(product.get("commissionRate")) >= filters["min_commission_rate"]
@@ -208,12 +208,100 @@ def mil(value: float) -> str:
     return f"{value/1000:.1f} mil".replace(".", ",") if value >= 1000 else str(int(value))
 
 
+def headline_for(product: dict) -> str:
+    """Cria uma chamada curta baseada no produto, evitando um título único."""
+    name = str(product.get("productName", "")).lower()
+    category = category_for(product)
+
+    specific = [
+        (("protetor solar", "protetor facial"), [
+            "☀️ Proteção para a pele com preço de achadinho!",
+            "🧴 Um aliado para sua rotina de skincare!",
+            "✨ Achado de cuidado facial para aproveitar!"
+        ]),
+        (("sérum", "serum"), [
+            "💧 Um cuidado especial para sua pele!",
+            "✨ Sérum queridinho para conhecer!",
+            "🧖‍♀️ Seu próximo passo no skincare pode estar aqui!"
+        ]),
+        (("base líquida", "base matte", "base"), [
+            "💄 Uma base para deixar na nécessaire!",
+            "✨ Achadinho de make que vale conferir!",
+            "💋 Mais um item para renovar sua maquiagem!"
+        ]),
+        (("batom", "lip tint", "gloss"), [
+            "💋 Um toque de cor para sua make!",
+            "💄 Achadinho perfeito para a nécessaire!",
+            "✨ Um mimo para quem ama maquiagem!"
+        ]),
+        (("shampoo", "condicionador", "máscara capilar"), [
+            "🫧 Um cuidado a mais para seus cabelos!",
+            "💆‍♀️ Achado para sua rotina capilar!",
+            "✨ Seu cabelo merece esse carinho!"
+        ]),
+        (("escova alisadora", "chapinha", "secador"), [
+            "💇‍♀️ Mais praticidade na hora de arrumar o cabelo!",
+            "🔥 Achadinho para facilitar sua rotina!",
+            "✨ Um aliado para seus dias de beleza!"
+        ]),
+        (("hidratante corporal", "creme para mãos"), [
+            "🧴 Um carinho extra para sua rotina de autocuidado!",
+            "💗 Achado para cuidar da pele sem complicação!",
+            "✨ Seu momento de autocuidado começa aqui!"
+        ]),
+        (("esfoliante",), [
+            "🛁 Um cuidado especial para sua rotina!",
+            "💗 Achadinho para seu momento de autocuidado!",
+            "✨ Mais um mimo para cuidar de você!"
+        ]),
+    ]
+
+    templates = None
+    for terms, options in specific:
+        if any(term in name for term in terms):
+            templates = options
+            break
+
+    if templates is None:
+        by_category = {
+            "skincare": [
+                "✨ Um achado para sua rotina de cuidados com a pele!",
+                "💗 Mais um mimo para seu skincare!",
+                "🧴 Cuidado com a pele com preço para aproveitar!"
+            ],
+            "maquiagem": [
+                "💄 Achadinho para quem ama maquiagem!",
+                "✨ Um item novo para sua nécessaire!",
+                "💋 Sua próxima descoberta de make!"
+            ],
+            "cabelo": [
+                "💇‍♀️ Um achado para cuidar dos cabelos!",
+                "✨ Mais praticidade na sua rotina capilar!",
+                "🫧 Um mimo para seus cuidados com o cabelo!"
+            ],
+            "corpo": [
+                "🛁 Um achado para seu autocuidado!",
+                "💗 Um carinho extra na sua rotina!",
+                "✨ Cuide de você e aproveite esse achadinho!"
+            ],
+        }
+        templates = by_category.get(category, [
+            "💗 Olha esse achadinho que encontrei!",
+            "✨ Uma oferta que vale conferir!",
+            "🛍️ Mais uma descoberta para aproveitar!"
+        ])
+
+    identity = str(product.get("itemId") or product.get("productName") or "")
+    index = int(hashlib.sha256(identity.encode("utf-8")).hexdigest()[:8], 16) % len(templates)
+    return templates[index]
+
+
 def build_message(product: dict, link: str) -> str:
     price = num(product.get("price"))
     discount = num(product.get("priceDiscountRate"))
     name = html.escape(str(product.get("productName", "Achadinho"))[:100])
     lines = [
-        "💗 <b>OLHA ESSE ACHADINHO!</b>",
+        f"<b>{html.escape(headline_for(product))}</b>",
         "",
         f"✨ {name}",
         "",

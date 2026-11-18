@@ -24,13 +24,14 @@
     "min_rating": 4.7,
     "min_sales": 200,
     "min_commission_rate": 0.05,
-    "max_price": 150
+    "max_price": 150,
+    "max_discount": 45
   },
   "score_weights": {
-    "discount": 35,
-    "rating": 25,
-    "sales": 20,
-    "commission": 20
+    "commission": 45,
+    "sales": 35,
+    "rating": 15,
+    "discount": 5
   },
   "category_keywords": {
     "skincare": [
