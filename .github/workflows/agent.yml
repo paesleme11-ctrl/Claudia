@@ -1,16 +1,25 @@
-name: Agente Shopee
+name: Claudia
 
 on:
   schedule:
-   - cron: "*/20 * * * *"
+    # Acorda a cada 30 min; o config.json decide se há disparo (horário e intervalo).
+    - cron: "*/30 * * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Disparar agora, ignorando horário e intervalo"
+        type: boolean
+        default: false
+      quantidade:
+        description: "Produtos neste disparo (vazio = padrão do config)"
+        required: false
 
 permissions:
   contents: write
 
 # Evita duas execuções simultâneas disputando o histórico postados.json.
 concurrency:
-  group: agente-shopee
+  group: claudia
   cancel-in-progress: false
 
 jobs:
@@ -22,17 +31,27 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - run: pip install -r requirements.txt
-      - name: Executar agente
+      - name: Executar Claudia
         run: python agent.py
         env:
           SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
           SHOPEE_SECRET: ${{ secrets.SHOPEE_SECRET }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_DISPATCH: ${{ inputs.force }}
+          QTD_AGORA: ${{ inputs.quantidade }}
       - name: Salvar histórico
+        if: always()
         run: |
-          git config user.name "agente-shopee"
-          git config user.email "agente@users.noreply.github.com"
+          git config user.name "claudia"
+          git config user.email "claudia@users.noreply.github.com"
           git add postados.json
-          git diff --staged --quiet || (git commit -m "atualiza histórico" && git push)
+          if ! git diff --staged --quiet; then
+            git commit -m "claudia: atualiza histórico"
+            for i in 1 2 3; do
+              git pull --rebase -q && git push && break
+              sleep 3
+            done
+          fi
