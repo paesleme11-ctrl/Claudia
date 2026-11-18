@@ -1,21 +1,31 @@
 name: Agente Shopee
+
 on:
   schedule:
-    # UTC: 11,14,17,20,23 = 8h, 11h, 14h, 17h, 20h em Brasília
-    - cron: "0 11,14,17,20,23 * * *"
+    # GitHub Actions usa UTC. Executa nos minutos 0, 20 e 40 de cada hora.
+    - cron: "*/20 * * * *"
   workflow_dispatch:
+
 permissions:
   contents: write
+
+# Evita duas execuções simultâneas disputando o histórico postados.json.
+concurrency:
+  group: agente-shopee
+  cancel-in-progress: false
+
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - run: python agent.py
+      - name: Executar agente
+        run: python agent.py
         env:
           SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
           SHOPEE_SECRET: ${{ secrets.SHOPEE_SECRET }}
