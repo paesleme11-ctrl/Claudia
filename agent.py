@@ -311,7 +311,7 @@ def build_message(product: dict, link: str) -> str:
         lines.append(
             f"💸 De <s>{brl(old_price)}</s> por <b>{brl(price)}</b>"
         )
-        lines.append(f"🏷️ Desconto informado pela Shopee: <b>{discount:.0f}% OFF</b>")
+        lines.append(f"🏷️ Desconto de: <b>{discount:.0f}% OFF</b>")
     else:
         lines.append(f"💸 <b>{brl(price)}</b>")
 
