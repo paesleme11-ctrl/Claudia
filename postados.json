@@ -85,9 +85,15 @@
     "16389758023": 1795087360.8054535,
     "22893686043": 1795087360.8054535,
     "13697446869": 1795087360.8054535,
-    "22197136707": 1795087360.8054535
+    "22197136707": 1795087360.8054535,
+    "58264684239": 1795116726.5320637,
+    "52311303643": 1795116726.5320637,
+    "58218169635": 1795116726.5320637,
+    "23494759005": 1795116726.5320637,
+    "22894085799": 1795116726.5320637,
+    "23294422741": 1795116726.5320637
   },
-  "last_dispatch": 1795087360.8054535,
+  "last_dispatch": 1795116726.5320637,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -184,14 +190,38 @@
     {
       "n": "Centrífuga De Salada Secador Verduras  Manual 4l All Black",
       "t": 1795087360.8054535
+    },
+    {
+      "n": "Kit Hidrabene Clareador Skincare Clareador Facial: Sabonete, Protetor 70 FPS e Sérum Multicorretivo",
+      "t": 1795116726.5320637
+    },
+    {
+      "n": "BODY SPLASH MASCULINO VIBRATION 200ML - PRIMACIAL PERFUME CÍTRICO",
+      "t": 1795116726.5320637
+    },
+    {
+      "n": "Protetor Solar Facial Anasol FPS 70 Clareador Anti-Manchas Toque Seco 60g",
+      "t": 1795116726.5320637
+    },
+    {
+      "n": "Camiseta Feminina Poderosas - Camisetão Levinho de Treino Algoão Premium",
+      "t": 1795116726.5320637
+    },
+    {
+      "n": "Portátil Mini Secador De Unhas Branco Lanterna LED Rápido UV Gel Luz Seca Ferramentas Manicure",
+      "t": 1795116726.5320637
+    },
+    {
+      "n": "Ollie Glow Hidratante Facial FPS50",
+      "t": 1795116726.5320637
     }
   ],
   "credito": {
-    "skincare": 0.07428571428571429,
-    "maquiagem": -0.5114285714285715,
-    "cabelo": -0.33999999999999986,
-    "corpo": -0.5114285714285713,
-    "roupas": 0.48857142857142843,
+    "skincare": -0.5542857142857143,
+    "maquiagem": 0.4314285714285714,
+    "cabelo": 0.4600000000000002,
+    "corpo": -1.5685714285714285,
+    "roupas": 0.4314285714285713,
     "casa-e-decoracao": 0.8
   }
 }
