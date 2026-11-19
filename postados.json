@@ -73,9 +73,15 @@
     "22098878065": 1795042120.1530404,
     "23396807542": 1795042120.1530404,
     "58256741801": 1795042120.1530404,
-    "43103443602": 1795042120.1530404
+    "43103443602": 1795042120.1530404,
+    "54663825990": 1795056536.661124,
+    "58261587690": 1795056536.661124,
+    "20098271687": 1795056536.661124,
+    "18099720897": 1795056536.661124,
+    "23892647514": 1795056536.661124,
+    "23598387814": 1795056536.661124
   },
-  "last_dispatch": 1795042120.1530404,
+  "last_dispatch": 1795056536.661124,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -124,14 +130,38 @@
     {
       "n": "FADVAN Cílios Cor Marrom YY 3DW 4DW 5DW Forma Extensões De Postiços Naturais",
       "t": 1795042120.1530404
+    },
+    {
+      "n": "Perfume Masculino  100ml Fragrância Elegante Longa Duração Para Uso Diário",
+      "t": 1795056536.661124
+    },
+    {
+      "n": "Sérum Peptídeo de Cobre GHK-Cu Reduz Rugas Linhas Finas Firmeza e Hidratação Facial Zencial",
+      "t": 1795056536.661124
+    },
+    {
+      "n": "Tiras de Banho de Silicone Esfoliante de Corpo Prática",
+      "t": 1795056536.661124
+    },
+    {
+      "n": "Chave T  Longa Para máquina de lavar 10mm Agitador Brastemp/Consul/Electrolux Universal 48/62cm",
+      "t": 1795056536.661124
+    },
+    {
+      "n": "Base Liquida Facial Solft Matte bege  Ruby Rose",
+      "t": 1795056536.661124
+    },
+    {
+      "n": "Adaptador de Tomada Ultra Resistente de Porcelana para Secador Air Fryer Benjamin Bivolt 10A e 20A",
+      "t": 1795056536.661124
     }
   ],
   "credito": {
-    "skincare": 0.3314285714285714,
-    "maquiagem": -0.39714285714285713,
-    "cabelo": 0.06000000000000005,
-    "corpo": -0.397142857142857,
-    "roupas": -0.39714285714285724,
+    "skincare": -0.29714285714285715,
+    "maquiagem": -0.4542857142857143,
+    "cabelo": -0.1399999999999999,
+    "corpo": -0.4542857142857142,
+    "roupas": 0.5457142857142856,
     "casa-e-decoracao": 0.8
   }
 }
