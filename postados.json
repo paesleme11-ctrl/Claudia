@@ -79,9 +79,15 @@
     "20098271687": 1795056536.661124,
     "18099720897": 1795056536.661124,
     "23892647514": 1795056536.661124,
-    "23598387814": 1795056536.661124
+    "23598387814": 1795056536.661124,
+    "28867680104": 1795087360.8054535,
+    "19099837636": 1795087360.8054535,
+    "16389758023": 1795087360.8054535,
+    "22893686043": 1795087360.8054535,
+    "13697446869": 1795087360.8054535,
+    "22197136707": 1795087360.8054535
   },
-  "last_dispatch": 1795056536.661124,
+  "last_dispatch": 1795087360.8054535,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -154,14 +160,38 @@
     {
       "n": "Adaptador de Tomada Ultra Resistente de Porcelana para Secador Air Fryer Benjamin Bivolt 10A e 20A",
       "t": 1795056536.661124
+    },
+    {
+      "n": "[NEW] NUMBUZIN No.9 NAD BIO Lifting Sil Essence 30ml, 50ml",
+      "t": 1795087360.8054535
+    },
+    {
+      "n": "Kit 4 Body Splash Árabe Importado Luxury Attaff Rose Royal Blanc Allibah Rouge Perfumes",
+      "t": 1795087360.8054535
+    },
+    {
+      "n": "Fadvan 4D W Eyelash Extensão Fãs Falso Estilo Macio Vison Fácil De Enfeite marrom Cílios Naturais",
+      "t": 1795087360.8054535
+    },
+    {
+      "n": "Sandália Rasteira Feminina Bico Quadrado Tiras Trançadas Confortável Leve Casual Verão Slide Elegante Tendência Moda Dia",
+      "t": 1795087360.8054535
+    },
+    {
+      "n": "Varal Portátil Para Apartamento Secador De Roupas Prático e Retrátil Para Janela e Parede",
+      "t": 1795087360.8054535
+    },
+    {
+      "n": "Centrífuga De Salada Secador Verduras  Manual 4l All Black",
+      "t": 1795087360.8054535
     }
   ],
   "credito": {
-    "skincare": -0.29714285714285715,
-    "maquiagem": -0.4542857142857143,
-    "cabelo": -0.1399999999999999,
-    "corpo": -0.4542857142857142,
-    "roupas": 0.5457142857142856,
+    "skincare": 0.07428571428571429,
+    "maquiagem": -0.5114285714285715,
+    "cabelo": -0.33999999999999986,
+    "corpo": -0.5114285714285713,
+    "roupas": 0.48857142857142843,
     "casa-e-decoracao": 0.8
   }
 }
