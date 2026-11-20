@@ -24,7 +24,7 @@
         "sérum facial",
         "esfoliante"
       ],
-      "percent": 16
+      "percent": 15
     },
     "maquiagem": {
       "enabled": true,
@@ -33,7 +33,7 @@
         "base líquida",
         "batom"
       ],
-      "percent": 11
+      "percent": 15
     },
     "cabelo": {
       "enabled": true,
@@ -43,7 +43,7 @@
         "prancha",
         "secador"
       ],
-      "percent": 21
+      "percent": 14
     },
     "corpo": {
       "enabled": true,
@@ -52,7 +52,7 @@
         "perfume",
         "body splash"
       ],
-      "percent": 11
+      "percent": 14
     },
     "roupas": {
       "enabled": true,
@@ -60,34 +60,56 @@
         "vestidos",
         "roupa de academia",
         "lingerie",
-        "sapatos e sandalias"
+        "sapatos e sandalias",
+        "calças leggings",
+        "shorts femininos"
       ],
-      "percent": 11
+      "percent": 14
     },
     "casa-e-decoracao": {
       "enabled": true,
       "keywords": [
-        "decoração"
+        "decoração",
+        "artigos de cozinha",
+        "roupas de cama",
+        "móveis",
+        "banheiros",
+        "louça",
+        "iluminação",
+        "organizadores para casa",
+        "ferramentas e melhorias para casa"
       ],
-      "percent": 30
+      "percent": 14
+    },
+    "eletrodomesticos": {
+      "enabled": true,
+      "keywords": [
+        "utensílios de cozinha",
+        "eletrodomésticos pequenos",
+        "projetores e acessórios",
+        "baterias",
+        "eletrodomésticos grandes",
+        "tvs e acessórios"
+      ],
+      "percent": 14
     }
   },
   "sort_type": 2,
   "limit_per_keyword": 30,
   "top_n": 6,
   "max_per_category": 2,
-  "repeat_after_days": 7,
+  "repeat_after_days": 3,
   "sub_ids": [
     "achadinhos",
     "agente"
   ],
   "filters": {
-    "min_discount": 15,
-    "max_discount": 60,
-    "min_rating": 4.7,
-    "min_sales": 1000,
+    "min_discount": 5,
+    "max_discount": 80,
+    "min_rating": 4.5,
+    "min_sales": 300,
     "min_commission_rate": 0.1,
-    "max_price": 300
+    "max_price": 2000
   },
   "score_weights": {
     "commission": 45,
