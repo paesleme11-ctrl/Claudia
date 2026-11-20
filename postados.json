@@ -103,9 +103,15 @@
     "20199206047": 1795180760.6358337,
     "21998270875": 1795180760.6358337,
     "22993348854": 1795180760.6358337,
-    "58270017100": 1795180760.6358337
+    "58270017100": 1795180760.6358337,
+    "27123077441": 1795195136.763283,
+    "43852360893": 1795195136.763283,
+    "23992649270": 1795195136.763283,
+    "22394494115": 1795195136.763283,
+    "22293575369": 1795195136.763283,
+    "23694347564": 1795195136.763283
   },
-  "last_dispatch": 1795180760.6358337,
+  "last_dispatch": 1795195136.763283,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -274,15 +280,39 @@
     {
       "n": "Escova Secadora Alisador Eletrica QuenteCabelo Com 3 Em1,Portátil para Uso Doméstico,protege el cabello",
       "t": 1795180760.6358337
+    },
+    {
+      "n": "Fio De Fada De 2M Com Luzes De Fadas Led Para Decoração De Casa E Festa De Natal",
+      "t": 1795195136.763283
+    },
+    {
+      "n": "Creme Hidratante Facial 5% Manteiga de Karité + 5% Glicerina + 2% Niacinamida CH-01Principia - 50g",
+      "t": 1795195136.763283
+    },
+    {
+      "n": "1/2/3 Pcs Umidificador Atomizador de Ar Portátil para Casa Umidificador 200ml ming",
+      "t": 1795195136.763283
+    },
+    {
+      "n": "SHOTH FEMININO ALFAIATARIA CON CINTO MARRON É BOLSOS ELEGANTES",
+      "t": 1795195136.763283
+    },
+    {
+      "n": "Mascara De Cilios Melu Ruby Rose Rimel Peel Off Alta Fixação-14.5g",
+      "t": 1795195136.763283
+    },
+    {
+      "n": "GOKOCO Escova Secadora 5 Em 1 Conjunto De Secador De Cabelo Multifuncional De Alta Velocidade Dupla voltagem 110V-240V",
+      "t": 1795195136.763283
     }
   ],
   "credito": {
-    "skincare": -0.2828571428571428,
-    "maquiagem": 0.27428571428571413,
-    "cabelo": -0.16000000000000014,
-    "corpo": -0.7857142857142857,
-    "roupas": 0.21428571428571397,
-    "casa-e-decoracao": 0.6400000000000001,
-    "eletrodomesticos": -0.16000000000000003
+    "skincare": -0.3828571428571428,
+    "maquiagem": 0.17428571428571416,
+    "cabelo": -0.3200000000000002,
+    "corpo": 0.05428571428571427,
+    "roupas": 0.054285714285713826,
+    "casa-e-decoracao": 0.48,
+    "eletrodomesticos": -0.32000000000000006
   }
 }
