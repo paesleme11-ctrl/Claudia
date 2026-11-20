@@ -91,9 +91,15 @@
     "58218169635": 1795116726.5320637,
     "23494759005": 1795116726.5320637,
     "22894085799": 1795116726.5320637,
-    "23294422741": 1795116726.5320637
+    "23294422741": 1795116726.5320637,
+    "58214187685": 1795138002.9011323,
+    "40276461675": 1795138002.9011323,
+    "58255902115": 1795138002.9011323,
+    "22794282269": 1795138002.9011323,
+    "19598142136": 1795138002.9011323,
+    "22794333667": 1795138002.9011323
   },
-  "last_dispatch": 1795116726.5320637,
+  "last_dispatch": 1795138002.9011323,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -214,14 +220,38 @@
     {
       "n": "Ollie Glow Hidratante Facial FPS50",
       "t": 1795116726.5320637
+    },
+    {
+      "n": "Máscara Facial Preta Peel Off Carvão Ativado para Cravos, Poros e Oleosidade | Limpeza Facial Bluemoon",
+      "t": 1795138002.9011323
+    },
+    {
+      "n": "Vestido Feminino Midi Rodado Evangélico Detalhes de Botão Blazer Fake Casual Elegante Manga Bufante Malha Canelada",
+      "t": 1795138002.9011323
+    },
+    {
+      "n": "Base Sabão Líquido Faz 20L – Kit Blend Concentrado 2 Frascos – Fácil de Fazer",
+      "t": 1795138002.9011323
+    },
+    {
+      "n": "Lip Gloss Volumoso Efeito Preenchimento Labial Aumenta a Boca Com Acido Hialurônico - Lady Beauty",
+      "t": 1795138002.9011323
+    },
+    {
+      "n": "Ollie Protetor Solar em Bastão Com Cor FPS 95",
+      "t": 1795138002.9011323
+    },
+    {
+      "n": "Body Splash Rich Barbour's Beauty 200ml Fragrância Floral Desodorante Corporal Colônia",
+      "t": 1795138002.9011323
     }
   ],
   "credito": {
-    "skincare": -0.5542857142857143,
-    "maquiagem": 0.4314285714285714,
-    "cabelo": 0.4600000000000002,
-    "corpo": -1.5685714285714285,
-    "roupas": 0.4314285714285713,
+    "skincare": -1.1828571428571428,
+    "maquiagem": -0.6257142857142859,
+    "cabelo": 2.0,
+    "corpo": -1.6257142857142857,
+    "roupas": 0.3742857142857141,
     "casa-e-decoracao": 0.8
   }
 }
