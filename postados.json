@@ -109,9 +109,15 @@
     "23992649270": 1795195136.763283,
     "22394494115": 1795195136.763283,
     "22293575369": 1795195136.763283,
-    "23694347564": 1795195136.763283
+    "23694347564": 1795195136.763283,
+    "23798128210": 1795216304.9354043,
+    "22197514607": 1795216304.9354043,
+    "44467503760": 1795216304.9354043,
+    "58213437798": 1795216304.9354043,
+    "22694373665": 1795216304.9354043,
+    "19097634729": 1795216304.9354043
   },
-  "last_dispatch": 1795195136.763283,
+  "last_dispatch": 1795216304.9354043,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -304,15 +310,39 @@
     {
       "n": "GOKOCO Escova Secadora 5 Em 1 Conjunto De Secador De Cabelo Multifuncional De Alta Velocidade Dupla voltagem 110V-240V",
       "t": 1795195136.763283
+    },
+    {
+      "n": "Torneira Inox  Prata/Preto Com Chuveiro Com Rotação De 360° Cozinha Luxo Parede Promoção",
+      "t": 1795216304.9354043
+    },
+    {
+      "n": "Ventilador de Mesa Prime Air Maxx Force 6 pás 60W AVTE01",
+      "t": 1795216304.9354043
+    },
+    {
+      "n": "Regata Alça Fina Fitness Blusa Feminino Liso Poliamida Tank Top Slim Camiseta Academia Verão",
+      "t": 1795216304.9354043
+    },
+    {
+      "n": "Body Splash Inspirado em Perfumes Importados com Essência Concentrada e Fragrância Marcante",
+      "t": 1795216304.9354043
+    },
+    {
+      "n": "💄 Batom Mágico 24H Mudança de Cor kit 6 pcs Longa Duração | Hidratação Labial | Lipstick Transformador（embala colorida )",
+      "t": 1795216304.9354043
+    },
+    {
+      "n": "Kit 2 Shampoo World Veterinária Dug's Clorexidina Cães & Gatos - 500 mL",
+      "t": 1795216304.9354043
     }
   ],
   "credito": {
-    "skincare": -0.3828571428571428,
-    "maquiagem": 0.17428571428571416,
-    "cabelo": -0.3200000000000002,
-    "corpo": 0.05428571428571427,
-    "roupas": 0.054285714285713826,
-    "casa-e-decoracao": 0.48,
-    "eletrodomesticos": -0.32000000000000006
+    "skincare": 0.5171428571428572,
+    "maquiagem": 0.07428571428571429,
+    "cabelo": -0.4800000000000002,
+    "corpo": -0.10571428571428576,
+    "roupas": -0.1057142857142862,
+    "casa-e-decoracao": 0.31999999999999984,
+    "eletrodomesticos": -0.4800000000000001
   }
 }
