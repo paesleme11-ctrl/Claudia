@@ -97,9 +97,15 @@
     "58255902115": 1795138002.9011323,
     "22794282269": 1795138002.9011323,
     "19598142136": 1795138002.9011323,
-    "22794333667": 1795138002.9011323
+    "22794333667": 1795138002.9011323,
+    "23096150316": 1795180760.6358337,
+    "58268255011": 1795180760.6358337,
+    "20199206047": 1795180760.6358337,
+    "21998270875": 1795180760.6358337,
+    "22993348854": 1795180760.6358337,
+    "58270017100": 1795180760.6358337
   },
-  "last_dispatch": 1795138002.9011323,
+  "last_dispatch": 1795180760.6358337,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -244,14 +250,39 @@
     {
       "n": "Body Splash Rich Barbour's Beauty 200ml Fragrância Floral Desodorante Corporal Colônia",
       "t": 1795138002.9011323
+    },
+    {
+      "n": "1/2/5 Suporte De Parede Multifuncional Caixa De Armazenamento Casa Para Carregar Remoto Um Slot Organizadores para Casa",
+      "t": 1795180760.6358337
+    },
+    {
+      "n": "Shorts Saída De Praia Feminino Tricot Listrado Colorido Com Cordão Roupa Feminina Verão Moda Praia",
+      "t": 1795180760.6358337
+    },
+    {
+      "n": "Air Fryer Britânia 4,2L Dura Mais 1500W BFR38",
+      "t": 1795180760.6358337
+    },
+    {
+      "n": "Shampoo Escurecedor Cabelos Brancos Tonalizante Colored 300ml Efeito 100% Natural Super Resultado",
+      "t": 1795180760.6358337
+    },
+    {
+      "n": "Chapinha prancha Modelador E Alisador De Cabelo E Barba Masculino",
+      "t": 1795180760.6358337
+    },
+    {
+      "n": "Escova Secadora Alisador Eletrica QuenteCabelo Com 3 Em1,Portátil para Uso Doméstico,protege el cabello",
+      "t": 1795180760.6358337
     }
   ],
   "credito": {
-    "skincare": -1.1828571428571428,
-    "maquiagem": -0.6257142857142859,
-    "cabelo": 2.0,
-    "corpo": -1.6257142857142857,
-    "roupas": 0.3742857142857141,
-    "casa-e-decoracao": 0.8
+    "skincare": -0.2828571428571428,
+    "maquiagem": 0.27428571428571413,
+    "cabelo": -0.16000000000000014,
+    "corpo": -0.7857142857142857,
+    "roupas": 0.21428571428571397,
+    "casa-e-decoracao": 0.6400000000000001,
+    "eletrodomesticos": -0.16000000000000003
   }
 }
