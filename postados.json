@@ -115,9 +115,15 @@
     "44467503760": 1795216304.9354043,
     "58213437798": 1795216304.9354043,
     "22694373665": 1795216304.9354043,
-    "19097634729": 1795216304.9354043
+    "19097634729": 1795216304.9354043,
+    "22892833180": 1795233823.6243958,
+    "44074380649": 1795233823.6243958,
+    "25316598909": 1795233823.6243958,
+    "58255069695": 1795233823.6243958,
+    "53006654247": 1795233823.6243958,
+    "23698311645": 1795233823.6243958
   },
-  "last_dispatch": 1795216304.9354043,
+  "last_dispatch": 1795233823.6243958,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -334,15 +340,39 @@
     {
       "n": "Kit 2 Shampoo World Veterinária Dug's Clorexidina Cães & Gatos - 500 mL",
       "t": 1795216304.9354043
+    },
+    {
+      "n": "40 Peças / 46 Peças Jogo De Chave Catraca Caixa De Ferramentas para Reparo de Carros / Conjuntos de Chaves",
+      "t": 1795233823.6243958
+    },
+    {
+      "n": "Principia Gel de Limpeza Suave - GL-02 c/ 200g",
+      "t": 1795233823.6243958
+    },
+    {
+      "n": "SKIN1004 Madagascar Centella Asiatica Ampoule Facial Serum 55ml, 100ml",
+      "t": 1795233823.6243958
+    },
+    {
+      "n": "Calça Cintura média Versátil - Perfeita para Looks Casuais e Elegantes",
+      "t": 1795233823.6243958
+    },
+    {
+      "n": "Body Splash Xêrosa Poder das Divas 200ml",
+      "t": 1795233823.6243958
+    },
+    {
+      "n": "Caneta de Sobrancelha Fio a Fio 4 Pontas maquiagem À Prova D'Água Preenche Falhas Natural Maquiagem",
+      "t": 1795233823.6243958
     }
   ],
   "credito": {
-    "skincare": 0.5171428571428572,
-    "maquiagem": 0.07428571428571429,
-    "cabelo": -0.4800000000000002,
-    "corpo": -0.10571428571428576,
-    "roupas": -0.1057142857142862,
-    "casa-e-decoracao": 0.31999999999999984,
-    "eletrodomesticos": -0.4800000000000001
+    "skincare": -0.5828571428571427,
+    "maquiagem": -0.02571428571428569,
+    "cabelo": 0.35999999999999976,
+    "corpo": -0.2657142857142858,
+    "roupas": -0.26571428571428624,
+    "casa-e-decoracao": 0.1599999999999997,
+    "eletrodomesticos": 0.3599999999999999
   }
 }
