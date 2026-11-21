@@ -121,9 +121,15 @@
     "25316598909": 1795233823.6243958,
     "58255069695": 1795233823.6243958,
     "53006654247": 1795233823.6243958,
-    "23698311645": 1795233823.6243958
+    "23698311645": 1795233823.6243958,
+    "22393689713": 1795263982.34942,
+    "22894809775": 1795263982.34942,
+    "21297578652": 1795263982.34942,
+    "44169267861": 1795263982.34942,
+    "47509060943": 1795263982.34942,
+    "25320920885": 1795263982.34942
   },
-  "last_dispatch": 1795233823.6243958,
+  "last_dispatch": 1795263982.34942,
   "recentes": [
     {
       "n": "Kit 2 Body Splash Ameixa Negra, Maracujá, ou Uva Merlot Cereja 200ml BELKIT Alta Projeção e Fixação",
@@ -364,15 +370,39 @@
     {
       "n": "Caneta de Sobrancelha Fio a Fio 4 Pontas maquiagem À Prova D'Água Preenche Falhas Natural Maquiagem",
       "t": 1795233823.6243958
+    },
+    {
+      "n": "1/2/3 Forro Antiderrapante Para Gaveta, Geladeira E Guarda Roupas- Transparente 0,6*3M Evita Deslizamento em Superfícies",
+      "t": 1795263982.34942
+    },
+    {
+      "n": "Mini Máquina de Costura Doméstica Multifuncional – 12 Pontos – Compacta e Prática",
+      "t": 1795263982.34942
+    },
+    {
+      "n": "Sandália ortopédica feminina Terapêutica para Esporão Chinelo ortopédico",
+      "t": 1795263982.34942
+    },
+    {
+      "n": "Body Splash Xêrosa Baunilha Doce 200ml",
+      "t": 1795263982.34942
+    },
+    {
+      "n": "Shampoo Tonalizante Sem Amônia 300ml Cobre Brancos Hidrata e Dá Brilho Escurecedor Cabelos brancos",
+      "t": 1795263982.34942
+    },
+    {
+      "n": "Batom Mate 24 Horas Copo Antiaderente De Veludo De Longa Duração À Prova D'água Para Meninas E Mulheres Maquiagem Labial",
+      "t": 1795263982.34942
     }
   ],
   "credito": {
-    "skincare": -0.5828571428571427,
-    "maquiagem": -0.02571428571428569,
-    "cabelo": 0.35999999999999976,
-    "corpo": -0.2657142857142858,
-    "roupas": -0.26571428571428624,
-    "casa-e-decoracao": 0.1599999999999997,
-    "eletrodomesticos": 0.3599999999999999
+    "skincare": 0.3171428571428573,
+    "maquiagem": -0.12571428571428567,
+    "cabelo": 0.19999999999999973,
+    "corpo": -0.4257142857142858,
+    "roupas": -0.42571428571428627,
+    "casa-e-decoracao": -3.3306690738754696e-16,
+    "eletrodomesticos": 0.19999999999999973
   }
 }
