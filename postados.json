@@ -1,7 +1,7 @@
 {
   "postados": {
     "18866975811": 1795305327.1859047,
-    "21678240017": 1795017012.4834845,
+    "21678240017": 1795380392.9736474,
     "25293647491": 1795289731.1659036,
     "23994387054": 1795017012.4834845,
     "29564832567": 1795018804.5040472,
@@ -46,7 +46,7 @@
     "23398747829": 1795033554.1524198,
     "22193566084": 1795305327.1859047,
     "58200797547": 1795357620.6813223,
-    "22094238842": 1795034818.511263,
+    "22094238842": 1795380392.9736474,
     "20698275228": 1795034818.511263,
     "58208432235": 1795034818.511263,
     "58212447764": 1795034818.511263,
@@ -133,34 +133,14 @@
     "22394343234": 1795305327.1859047,
     "22392992790": 1795305327.1859047,
     "50205584073": 1795357620.6813223,
-    "18499853587": 1795357620.6813223
+    "18499853587": 1795357620.6813223,
+    "22697063003": 1795380392.9736474,
+    "43232380242": 1795380392.9736474,
+    "22697383155": 1795380392.9736474,
+    "58250219337": 1795380392.9736474
   },
-  "last_dispatch": 1795357620.6813223,
+  "last_dispatch": 1795380392.9736474,
   "recentes": [
-    {
-      "n": "Kit Hidrabene Clareador Skincare Clareador Facial: Sabonete, Protetor 70 FPS e Sérum Multicorretivo",
-      "t": 1795116726.5320637
-    },
-    {
-      "n": "BODY SPLASH MASCULINO VIBRATION 200ML - PRIMACIAL PERFUME CÍTRICO",
-      "t": 1795116726.5320637
-    },
-    {
-      "n": "Protetor Solar Facial Anasol FPS 70 Clareador Anti-Manchas Toque Seco 60g",
-      "t": 1795116726.5320637
-    },
-    {
-      "n": "Camiseta Feminina Poderosas - Camisetão Levinho de Treino Algoão Premium",
-      "t": 1795116726.5320637
-    },
-    {
-      "n": "Portátil Mini Secador De Unhas Branco Lanterna LED Rápido UV Gel Luz Seca Ferramentas Manicure",
-      "t": 1795116726.5320637
-    },
-    {
-      "n": "Ollie Glow Hidratante Facial FPS50",
-      "t": 1795116726.5320637
-    },
     {
       "n": "Máscara Facial Preta Peel Off Carvão Ativado para Cravos, Poros e Oleosidade | Limpeza Facial Bluemoon",
       "t": 1795138002.9011323
@@ -376,15 +356,39 @@
     {
       "n": "BB CreamBase/Corretivo com Esponja com Formato de Cogumelo Base Clareador Maquiagem Creme Clareador Cor Marfim e Natural",
       "t": 1795357620.6813223
+    },
+    {
+      "n": "Creme Gel Regenerador Facial Gota de Colágeno Kokeshi 45g",
+      "t": 1795380392.9736474
+    },
+    {
+      "n": "1/2/3 Unidades Luminárias Solares Impermeáveis Prova De Chuva 100 Led Sensor Courtyard Light Promoção",
+      "t": 1795380392.9736474
+    },
+    {
+      "n": "BODY SPLASH FEMININO ARABE AYRA 100ML - PRIMACIAL PERFUME FLORAL",
+      "t": 1795380392.9736474
+    },
+    {
+      "n": "Varal Para Parede Portátil E Retrátil Apartamento Sacada Secador De Roupas - Kaziva",
+      "t": 1795380392.9736474
+    },
+    {
+      "n": "Calça Pantalona Feminina Cintura Alta  Com Bolso Tecido Duna",
+      "t": 1795380392.9736474
+    },
+    {
+      "n": "Caneca Misturadora Automática Elétrica USB Bateria Recarregável Mixer Café 380ml",
+      "t": 1795380392.9736474
     }
   ],
   "credito": {
-    "skincare": 0.01714285714285735,
-    "maquiagem": -0.4257142857142856,
-    "cabelo": -0.28000000000000047,
-    "corpo": 0.09428571428571408,
-    "roupas": 0.09428571428571342,
-    "casa-e-decoracao": 0.5199999999999996,
-    "eletrodomesticos": -0.28000000000000047
+    "skincare": -0.08285714285714263,
+    "maquiagem": 0.4742857142857144,
+    "cabelo": -0.4400000000000005,
+    "corpo": -0.06571428571428595,
+    "roupas": -0.06571428571428661,
+    "casa-e-decoracao": 0.35999999999999943,
+    "eletrodomesticos": -0.4400000000000005
   }
 }
