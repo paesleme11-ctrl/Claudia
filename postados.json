@@ -5,7 +5,7 @@
     "25293647491": 1795289731.1659036,
     "23994387054": 1795017012.4834845,
     "29564832567": 1795018804.5040472,
-    "27620799823": 1795018804.5040472,
+    "27620799823": 1795357620.6813223,
     "23524387565": 1795018804.5040472,
     "55865986117": 1795018804.5040472,
     "13494334390": 1795018804.5040472,
@@ -31,7 +31,7 @@
     "58257250172": 1795024624.7058537,
     "58265242344": 1795024624.7058537,
     "23398951924": 1795024624.7058537,
-    "21299677651": 1795024624.7058537,
+    "21299677651": 1795357620.6813223,
     "58269629179": 1795024624.7058537,
     "20799325352": 1795024624.7058537,
     "58263573164": 1795027352.989699,
@@ -45,7 +45,7 @@
     "58260720450": 1795033554.1524198,
     "23398747829": 1795033554.1524198,
     "22193566084": 1795305327.1859047,
-    "58200797547": 1795034818.511263,
+    "58200797547": 1795357620.6813223,
     "22094238842": 1795034818.511263,
     "20698275228": 1795034818.511263,
     "58208432235": 1795034818.511263,
@@ -68,7 +68,7 @@
     "58254110507": 1795041632.6855838,
     "21198286873": 1795041632.6855838,
     "58203770266": 1795041632.6855838,
-    "22401382655": 1795042120.1530404,
+    "22401382655": 1795357620.6813223,
     "55761873036": 1795042120.1530404,
     "22098878065": 1795042120.1530404,
     "23396807542": 1795042120.1530404,
@@ -131,58 +131,12 @@
     "23193574821": 1795289731.1659036,
     "19697980846": 1795289731.1659036,
     "22394343234": 1795305327.1859047,
-    "22392992790": 1795305327.1859047
+    "22392992790": 1795305327.1859047,
+    "50205584073": 1795357620.6813223,
+    "18499853587": 1795357620.6813223
   },
-  "last_dispatch": 1795305327.1859047,
+  "last_dispatch": 1795357620.6813223,
   "recentes": [
-    {
-      "n": "Perfume Masculino  100ml Fragrância Elegante Longa Duração Para Uso Diário",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "Sérum Peptídeo de Cobre GHK-Cu Reduz Rugas Linhas Finas Firmeza e Hidratação Facial Zencial",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "Tiras de Banho de Silicone Esfoliante de Corpo Prática",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "Chave T  Longa Para máquina de lavar 10mm Agitador Brastemp/Consul/Electrolux Universal 48/62cm",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "Base Liquida Facial Solft Matte bege  Ruby Rose",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "Adaptador de Tomada Ultra Resistente de Porcelana para Secador Air Fryer Benjamin Bivolt 10A e 20A",
-      "t": 1795056536.661124
-    },
-    {
-      "n": "[NEW] NUMBUZIN No.9 NAD BIO Lifting Sil Essence 30ml, 50ml",
-      "t": 1795087360.8054535
-    },
-    {
-      "n": "Kit 4 Body Splash Árabe Importado Luxury Attaff Rose Royal Blanc Allibah Rouge Perfumes",
-      "t": 1795087360.8054535
-    },
-    {
-      "n": "Fadvan 4D W Eyelash Extensão Fãs Falso Estilo Macio Vison Fácil De Enfeite marrom Cílios Naturais",
-      "t": 1795087360.8054535
-    },
-    {
-      "n": "Sandália Rasteira Feminina Bico Quadrado Tiras Trançadas Confortável Leve Casual Verão Slide Elegante Tendência Moda Dia",
-      "t": 1795087360.8054535
-    },
-    {
-      "n": "Varal Portátil Para Apartamento Secador De Roupas Prático e Retrátil Para Janela e Parede",
-      "t": 1795087360.8054535
-    },
-    {
-      "n": "Centrífuga De Salada Secador Verduras  Manual 4l All Black",
-      "t": 1795087360.8054535
-    },
     {
       "n": "Kit Hidrabene Clareador Skincare Clareador Facial: Sabonete, Protetor 70 FPS e Sérum Multicorretivo",
       "t": 1795116726.5320637
@@ -398,15 +352,39 @@
     {
       "n": "Extrato de Henna Pronto para Uso Desing Sobrancelha Henna Castanho Claro 15g Pigmento Dura Até 24h Na Pele",
       "t": 1795305327.1859047
+    },
+    {
+      "n": "Numbuzin No.9 NAD Bio Lifting Essence 2types 30ml/50ml",
+      "t": 1795357620.6813223
+    },
+    {
+      "n": "EZ Silver Essence - Eau de Parfum 100ml",
+      "t": 1795357620.6813223
+    },
+    {
+      "n": "Kit Shampoo + Condicionador Hidra Multy Kids Salon Line 300ml",
+      "t": 1795357620.6813223
+    },
+    {
+      "n": "Conjunto Feminino Canelado Calça Wide Leg Pantalona com Bolsos + Regata Moda Verão Frio",
+      "t": 1795357620.6813223
+    },
+    {
+      "n": "Carregador Sem Fio 5000/10000mAh iPhone",
+      "t": 1795357620.6813223
+    },
+    {
+      "n": "BB CreamBase/Corretivo com Esponja com Formato de Cogumelo Base Clareador Maquiagem Creme Clareador Cor Marfim e Natural",
+      "t": 1795357620.6813223
     }
   ],
   "credito": {
-    "skincare": 0.11714285714285744,
-    "maquiagem": -0.3257142857142856,
-    "cabelo": -0.12000000000000044,
-    "corpo": 0.2542857142857141,
-    "roupas": 0.25428571428571356,
-    "casa-e-decoracao": -0.3200000000000004,
-    "eletrodomesticos": -0.12000000000000044
+    "skincare": 0.01714285714285735,
+    "maquiagem": -0.4257142857142856,
+    "cabelo": -0.28000000000000047,
+    "corpo": 0.09428571428571408,
+    "roupas": 0.09428571428571342,
+    "casa-e-decoracao": 0.5199999999999996,
+    "eletrodomesticos": -0.28000000000000047
   }
 }
