@@ -47,7 +47,7 @@
     "22193566084": 1795305327.1859047,
     "58200797547": 1795660043.1537814,
     "22094238842": 1795692551.341942,
-    "20698275228": 1795034818.511263,
+    "20698275228": 1795725138.3288944,
     "58208432235": 1795034818.511263,
     "58212447764": 1795635323.364098,
     "22598926569": 1795713649.9884887,
@@ -147,9 +147,14 @@
     "23598945466": 1795714246.1887765,
     "22397976540": 1795714246.1887765,
     "20997808988": 1795714246.1887765,
-    "58204437244": 1795714246.1887765
+    "58204437244": 1795714246.1887765,
+    "18799207815": 1795725138.3288944,
+    "22494456663": 1795725138.3288944,
+    "21399231257": 1795725138.3288944,
+    "23693984444": 1795725138.3288944,
+    "44269262746": 1795725138.3288944
   },
-  "last_dispatch": 1795714246.1887765,
+  "last_dispatch": 1795725138.3288944,
   "recentes": [
     {
       "n": "1/2/5 Suporte De Parede Multifuncional Caixa De Armazenamento Casa Para Carregar Remoto Um Slot Organizadores para Casa",
@@ -366,6 +371,30 @@
     {
       "n": "Etiquetas Adesivas 3x3, 4x4 ou 5x5cm Personalizados Com Recorte",
       "t": 1795714246.1887765
+    },
+    {
+      "n": "Kit Limpador Pastilha de máquina de lavar roupa, comprimido efervescente sólido para remover manchas【】",
+      "t": 1795725138.3288944
+    },
+    {
+      "n": "Kit 10/25/50/100 Saco Saquinho Organza Tule 7x9 9x12 10x15 Lembrancinha Festa Casamento",
+      "t": 1795725138.3288944
+    },
+    {
+      "n": "20 a 100 Unidades - Chaveiro Personalizado Acrílico Espelhado com Logo Brinde Lembrancinha Festa Natal",
+      "t": 1795725138.3288944
+    },
+    {
+      "n": "Insulfilm Película fume G5 G20 ou G35 Automotiva e Residencial Para Vidros",
+      "t": 1795725138.3288944
+    },
+    {
+      "n": "Meia Babado Feminina Infantil Batizado - Princesa-Fofa",
+      "t": 1795725138.3288944
+    },
+    {
+      "n": "Kit Laços de Cetim nº 9  Laços Prontos para Lembrancinhas de Luxo Casamento, Festa e Batizado",
+      "t": 1795725138.3288944
     }
   ],
   "credito": {
@@ -376,9 +405,9 @@
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
     "eletrodomesticos": 0.268235294117646,
-    "decoracao-de-festas": -0.6799999999999999,
-    "lembrancinhas": 0.32000000000000006,
-    "papelaria-e-personalizados": 0.10000000000000009,
-    "eventos-especiais": 0.26
+    "decoracao-de-festas": -0.3599999999999999,
+    "lembrancinhas": -0.3599999999999999,
+    "papelaria-e-personalizados": 0.20000000000000018,
+    "eventos-especiais": 0.52
   }
 }
