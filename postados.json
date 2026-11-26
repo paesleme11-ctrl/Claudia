@@ -138,13 +138,18 @@
     "43232380242": 1795380392.9736474,
     "22697383155": 1795380392.9736474,
     "58250219337": 1795380392.9736474,
-    "23898566928": 1795396149.595967,
+    "23898566928": 1795714246.1887765,
     "23197685907": 1795712491.1728003,
     "22797545994": 1795469567.3328388,
     "58264844303": 1795469567.3328388,
-    "22394896507": 1795660043.1537814
+    "22394896507": 1795660043.1537814,
+    "8083342653": 1795714246.1887765,
+    "23598945466": 1795714246.1887765,
+    "22397976540": 1795714246.1887765,
+    "20997808988": 1795714246.1887765,
+    "58204437244": 1795714246.1887765
   },
-  "last_dispatch": 1795713649.9884887,
+  "last_dispatch": 1795714246.1887765,
   "recentes": [
     {
       "n": "1/2/5 Suporte De Parede Multifuncional Caixa De Armazenamento Casa Para Carregar Remoto Um Slot Organizadores para Casa",
@@ -337,6 +342,30 @@
     {
       "n": "Caneta de Sobrancelha Fio a Fio 4 Pontas maquiagem À Prova D'Água Preenche Falhas Natural Maquiagem",
       "t": 1795713649.9884887
+    },
+    {
+      "n": "MISSHA M Perfect Cover BB Cream SPF42 PA+++ 20ml / 50ml | Embalagem em Renovação",
+      "t": 1795714246.1887765
+    },
+    {
+      "n": "Bubble 18 Polegadas kit 10 + 10 bexigas 18 polegadas Látex Decore Com Criatividade",
+      "t": 1795714246.1887765
+    },
+    {
+      "n": "Toalha de Geladeira com 3 -PVC - Kit - Lavável - 46x32cm",
+      "t": 1795714246.1887765
+    },
+    {
+      "n": "ADESIVO TRANSPARENTE PERSONALIZADO COM SUA LOGO | VINIL À PROVA D’ÁGUA | ETIQUETA ADESIVA PREMIUM + BRINDE",
+      "t": 1795714246.1887765
+    },
+    {
+      "n": "Pingente De Seda Tassel - 7.0 cm - Pacote com 10 / 50 / 100 unidades - Enfeite Decoração Casamento",
+      "t": 1795714246.1887765
+    },
+    {
+      "n": "Etiquetas Adesivas 3x3, 4x4 ou 5x5cm Personalizados Com Recorte",
+      "t": 1795714246.1887765
     }
   ],
   "credito": {
@@ -346,6 +375,10 @@
     "corpo": -0.3574789915966391,
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
-    "eletrodomesticos": 0.268235294117646
+    "eletrodomesticos": 0.268235294117646,
+    "decoracao-de-festas": -0.6799999999999999,
+    "lembrancinhas": 0.32000000000000006,
+    "papelaria-e-personalizados": 0.10000000000000009,
+    "eventos-especiais": 0.26
   }
 }
