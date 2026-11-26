@@ -16,82 +16,51 @@
     ]
   },
   "categories": {
-    "skincare": {
+    "decoracao-de-festas": {
       "enabled": true,
       "keywords": [
-        "skincare",
-        "protetor solar facial",
-        "sérum facial",
-        "esfoliante"
+        "Balões e bexigas",
+        "Painéis e fundos",
+        "Topos de bolo",
+        "Displays e personalizados",
+        "Kits de decoração",
+        "Descartáveis temáticos"
       ],
-      "percent": 15
+      "percent": 25
     },
-    "maquiagem": {
+    "lembrancinhas": {
       "enabled": true,
       "keywords": [
-        "maquiagem",
-        "base líquida",
-        "batom"
+        "Sacolinhas surpresa",
+        "Caixinhas personalizadas",
+        "Tubetes e potinhos",
+        "Embalagens",
+        "Brindes"
       ],
-      "percent": 15
+      "percent": 25
     },
-    "cabelo": {
+    "papelaria-e-personalizados": {
       "enabled": true,
       "keywords": [
-        "shampoo",
-        "escova alisadora",
-        "prancha",
-        "secador"
+        "Papéis especiais",
+        "Plotter e acessórios",
+        "Fitas e laços",
+        "Adesivos e etiquetas",
+        "Materiais para personalizados"
       ],
-      "percent": 14
+      "percent": 25
     },
-    "corpo": {
+    "eventos-especiais": {
       "enabled": true,
       "keywords": [
-        "hidratante corporal",
-        "perfume",
-        "body splash"
+        "Chá revelação",
+        "Chá de bebê",
+        "Casamento",
+        "Batizado",
+        "Formatura",
+        "Festa infantil"
       ],
-      "percent": 14
-    },
-    "roupas": {
-      "enabled": true,
-      "keywords": [
-        "vestidos",
-        "roupa de academia",
-        "lingerie",
-        "sapatos e sandalias",
-        "calças leggings",
-        "shorts femininos"
-      ],
-      "percent": 14
-    },
-    "casa-e-decoracao": {
-      "enabled": true,
-      "keywords": [
-        "decoração",
-        "artigos de cozinha",
-        "roupas de cama",
-        "móveis",
-        "banheiros",
-        "louça",
-        "iluminação",
-        "organizadores para casa",
-        "ferramentas e melhorias para casa"
-      ],
-      "percent": 14
-    },
-    "eletrodomesticos": {
-      "enabled": true,
-      "keywords": [
-        "utensílios de cozinha",
-        "eletrodomésticos pequenos",
-        "projetores e acessórios",
-        "baterias",
-        "eletrodomésticos grandes",
-        "tvs e acessórios"
-      ],
-      "percent": 14
+      "percent": 25
     }
   },
   "sort_type": 2,
