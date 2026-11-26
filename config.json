@@ -26,18 +26,17 @@
         "Kits de decoração",
         "Descartáveis temáticos"
       ],
-      "percent": 25
+      "percent": 22
     },
     "lembrancinhas": {
       "enabled": true,
       "keywords": [
-        "Sacolinhas surpresa",
         "Caixinhas personalizadas",
         "Tubetes e potinhos",
         "Embalagens",
         "Brindes"
       ],
-      "percent": 25
+      "percent": 22
     },
     "papelaria-e-personalizados": {
       "enabled": true,
@@ -48,7 +47,7 @@
         "Adesivos e etiquetas",
         "Materiais para personalizados"
       ],
-      "percent": 25
+      "percent": 35
     },
     "eventos-especiais": {
       "enabled": true,
@@ -60,7 +59,7 @@
         "Formatura",
         "Festa infantil"
       ],
-      "percent": 25
+      "percent": 21
     }
   },
   "sort_type": 2,
@@ -89,7 +88,7 @@
   "similarity_threshold": 0.72,
   "request_pause_seconds": 1,
   "send_pause_seconds": 2,
-  "similarity_level": "medio",
+  "similarity_level": "baixo",
   "similarity_window_days": 3,
   "max_per_keyword": 1,
   "max_per_shop": 1
