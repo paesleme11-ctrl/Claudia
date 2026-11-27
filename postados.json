@@ -98,7 +98,7 @@
     "22794282269": 1795138002.9011323,
     "19598142136": 1795138002.9011323,
     "22794333667": 1795138002.9011323,
-    "23096150316": 1795469567.3328388,
+    "23096150316": 1795749381.023385,
     "58268255011": 1795537519.5613341,
     "20199206047": 1795469567.3328388,
     "21998270875": 1795537519.5613341,
@@ -152,34 +152,15 @@
     "22494456663": 1795725138.3288944,
     "21399231257": 1795725138.3288944,
     "23693984444": 1795725138.3288944,
-    "44269262746": 1795725138.3288944
+    "44269262746": 1795725138.3288944,
+    "24316708812": 1795749381.023385,
+    "43726111956": 1795749381.023385,
+    "22994443307": 1795749381.023385,
+    "58203832002": 1795749381.023385,
+    "58262399646": 1795749381.023385
   },
-  "last_dispatch": 1795725138.3288944,
+  "last_dispatch": 1795749381.023385,
   "recentes": [
-    {
-      "n": "1/2/5 Suporte De Parede Multifuncional Caixa De Armazenamento Casa Para Carregar Remoto Um Slot Organizadores para Casa",
-      "t": 1795469567.3328388
-    },
-    {
-      "n": "Creme Hidratante Facial 5% Manteiga de Karité + 5% Glicerina + 2% Niacinamida CH-01Principia - 50g",
-      "t": 1795469567.3328388
-    },
-    {
-      "n": "Air Fryer Britânia 4,2L Dura Mais 1500W BFR38",
-      "t": 1795469567.3328388
-    },
-    {
-      "n": "Calça Legging Flare Flanelada Leg Boca De Sino Bailarina Grossa Zero Transparência",
-      "t": 1795469567.3328388
-    },
-    {
-      "n": "Mascara De Cilios Melu Ruby Rose Rimel Peel Off Alta Fixação-14.5g",
-      "t": 1795469567.3328388
-    },
-    {
-      "n": "Base Para Sabão Líquido Lava-Roupas Fácil de Fazer",
-      "t": 1795469567.3328388
-    },
     {
       "n": "Torneira Inox  Prata/Preto Com Chuveiro Com Rotação De 360° Cozinha Luxo Parede Promoção",
       "t": 1795537519.5613341
@@ -395,6 +376,30 @@
     {
       "n": "Kit Laços de Cetim nº 9  Laços Prontos para Lembrancinhas de Luxo Casamento, Festa e Batizado",
       "t": 1795725138.3288944
+    },
+    {
+      "n": "1/2/5 Suporte De Parede Multifuncional Caixa De Armazenamento Casa Para Carregar Remoto Um Slot Organizadores para Casa",
+      "t": 1795749381.023385
+    },
+    {
+      "n": "Conjunto Especial De Amaciante De Sebo Super Derretido ILSO 150mL (Presente : Almofada De Algodão 40P)",
+      "t": 1795749381.023385
+    },
+    {
+      "n": "Adesivo Osascorte e Cordão Chaveiro para Moto Carro",
+      "t": 1795749381.023385
+    },
+    {
+      "n": "Sandália Menina infantil tiras strass festa aniversario casamento Rosê Dourada Prata",
+      "t": 1795749381.023385
+    },
+    {
+      "n": "Cicatribem Clareamento Total Sérum Clareador & Clareador Dérmico 60g + Firmador Íntimo de Brinde",
+      "t": 1795749381.023385
+    },
+    {
+      "n": "Letreiro Nome Personalizado Decorativo Infantil Chá de Bebe Filho de Mesa e Estante - Envie O Nome Desejado Pelo Chat",
+      "t": 1795749381.023385
     }
   ],
   "credito": {
@@ -405,9 +410,9 @@
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
     "eletrodomesticos": 0.268235294117646,
-    "decoracao-de-festas": -0.3599999999999999,
-    "lembrancinhas": -0.3599999999999999,
-    "papelaria-e-personalizados": 0.20000000000000018,
-    "eventos-especiais": 0.52
+    "decoracao-de-festas": -0.039999999999999813,
+    "lembrancinhas": -0.039999999999999813,
+    "papelaria-e-personalizados": 0.30000000000000027,
+    "eventos-especiais": -0.21999999999999997
   }
 }
