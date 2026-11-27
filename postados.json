@@ -163,34 +163,16 @@
     "22394194479": 1795783584.5321631,
     "58252895508": 1795783584.5321631,
     "28757774227": 1795783584.5321631,
-    "23997248551": 1795783584.5321631
+    "23997248551": 1795783584.5321631,
+    "58200253216": 1795815577.3139553,
+    "18397477770": 1795815577.3139553,
+    "21099673727": 1795815577.3139553,
+    "58203664210": 1795815577.3139553,
+    "51815976773": 1795815577.3139553,
+    "21697748986": 1795815577.3139553
   },
-  "last_dispatch": 1795783584.5321631,
+  "last_dispatch": 1795815577.3139553,
   "recentes": [
-    {
-      "n": "Torneira Inox  Prata/Preto Com Chuveiro Com Rotação De 360° Cozinha Luxo Parede Promoção",
-      "t": 1795537519.5613341
-    },
-    {
-      "n": "Kit Renovadores Gota de Colágeno e Rosa Mosqueta Kokeshi",
-      "t": 1795537519.5613341
-    },
-    {
-      "n": "Shorts Saída De Praia Feminino Tricot Listrado Colorido Com Cordão Roupa Feminina Verão Moda Praia",
-      "t": 1795537519.5613341
-    },
-    {
-      "n": "Body Splash My Sweet Delight Barbour's Beauty 200ml Fragrância Fresca Corporal Colônia",
-      "t": 1795537519.5613341
-    },
-    {
-      "n": "Ventilador de Mesa Prime Air Maxx Force 6 pás 60W AVTE01",
-      "t": 1795537519.5613341
-    },
-    {
-      "n": "Shampoo Escurecedor Cabelos Brancos Tonalizante Colored 300ml Efeito 100% Natural Super Resultado",
-      "t": 1795537519.5613341
-    },
     {
       "n": "Celimax The Vita A Retinal Shot Tightening Booster 15ml",
       "t": 1795568156.0973241
@@ -430,6 +412,30 @@
     {
       "n": "50 Adesivos no Vinil Transparente para Potes Organizadores Temperos Mantimentos Organizador 5x3cm",
       "t": 1795783584.5321631
+    },
+    {
+      "n": "Kit C/2 e KitC/4 Travesseiro Pluma de Ganso Confortavel e Macio Antiacaro 50x70cm",
+      "t": 1795815577.3139553
+    },
+    {
+      "n": "Painel Fundo de decoração tema Natal Em Tecido 2,20x1,70m",
+      "t": 1795815577.3139553
+    },
+    {
+      "n": "30 cx Mini Giz de Cera 5 Cores P/ Kit Festa Lembrancinha Artesanato Infantil",
+      "t": 1795815577.3139553
+    },
+    {
+      "n": "100 Unidades de Saco Plástico Sem Aba Adesiva Transparente Resistente Premium Polipropileno",
+      "t": 1795815577.3139553
+    },
+    {
+      "n": "Porta Ampolas - Proteção Reforçada e Portátil Segura + Brinde Tirze",
+      "t": 1795815577.3139553
+    },
+    {
+      "n": "Etiquetas Adesivas de Temperos e Condimentos 67 Unidades Adesivo Vinil Prova D´Água",
+      "t": 1795815577.3139553
     }
   ],
   "credito": {
@@ -440,9 +446,9 @@
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
     "eletrodomesticos": 0.268235294117646,
-    "decoracao-de-festas": 0.28000000000000025,
-    "lembrancinhas": 0.28000000000000025,
-    "papelaria-e-personalizados": -0.5999999999999996,
-    "eventos-especiais": 0.040000000000000036
+    "decoracao-de-festas": -0.3999999999999997,
+    "lembrancinhas": -0.3999999999999997,
+    "papelaria-e-personalizados": 0.5000000000000004,
+    "eventos-especiais": 0.30000000000000004
   }
 }
