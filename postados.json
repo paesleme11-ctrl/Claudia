@@ -169,34 +169,16 @@
     "21099673727": 1795815577.3139553,
     "58203664210": 1795815577.3139553,
     "51815976773": 1795815577.3139553,
-    "21697748986": 1795815577.3139553
+    "21697748986": 1795815577.3139553,
+    "19999604888": 1795836624.031979,
+    "58210833588": 1795836624.031979,
+    "58254264214": 1795836624.031979,
+    "22594240741": 1795836624.031979,
+    "55455746179": 1795836624.031979,
+    "23992747038": 1795836624.031979
   },
-  "last_dispatch": 1795815577.3139553,
+  "last_dispatch": 1795836624.031979,
   "recentes": [
-    {
-      "n": "Celimax The Vita A Retinal Shot Tightening Booster 15ml",
-      "t": 1795568156.0973241
-    },
-    {
-      "n": "Fio De Fada De 2M Com Luzes De Fadas Led Para Decoração De Casa E Festa De Natal",
-      "t": 1795568156.0973241
-    },
-    {
-      "n": "Kit S.O.S Hidratação Óleo de Rícino Shampoo e Condicionador Litrão Salon Line",
-      "t": 1795568156.0973241
-    },
-    {
-      "n": "Hidratante Creme Facial Pele De Porcelana Kokeshi 30g Milagre do Arroz",
-      "t": 1795568156.0973241
-    },
-    {
-      "n": "1/2/3 Pcs Umidificador Atomizador de Ar Portátil para Casa Umidificador 200ml ming",
-      "t": 1795568156.0973241
-    },
-    {
-      "n": "2kg Base Glicerinada Branca e Transparente Sabonetes Glicerinados Nossa Terra",
-      "t": 1795568156.0973241
-    },
     {
       "n": "beauty of joseon revive eye serum ginseng + retinal 10ml [mini] / 30ml [original]",
       "t": 1795635323.364098
@@ -436,6 +418,30 @@
     {
       "n": "Etiquetas Adesivas de Temperos e Condimentos 67 Unidades Adesivo Vinil Prova D´Água",
       "t": 1795815577.3139553
+    },
+    {
+      "n": "topo topper de bolo  os rosas",
+      "t": 1795836624.031979
+    },
+    {
+      "n": "VESTIDO COM FENDA LONGO PARA CASAMENTO, MADRINHAS, FESTA E FORMATURAS",
+      "t": 1795836624.031979
+    },
+    {
+      "n": "Kit 100 Envelope De Segurança Embalagem Envio Tamanho 12x18 13x25 15x20 19x25 20x20 20x30 26x36 32x40 40x50",
+      "t": 1795836624.031979
+    },
+    {
+      "n": "20/30/50 Etiqueta Personalizada em Acrílico Espelhado croche lembrancinha presente",
+      "t": 1795836624.031979
+    },
+    {
+      "n": "Kit 30 Laços/Lacinhos de Cetim Nº5 6x6cm para Doces, Embalagens e Festas",
+      "t": 1795836624.031979
+    },
+    {
+      "n": "36 Etiquetas para Potes de Condimentos Temperos Mantimentos 3,8x3,8cm",
+      "t": 1795836624.031979
     }
   ],
   "credito": {
@@ -446,9 +452,9 @@
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
     "eletrodomesticos": 0.268235294117646,
-    "decoracao-de-festas": -0.3999999999999997,
-    "lembrancinhas": -0.3999999999999997,
-    "papelaria-e-personalizados": 0.5000000000000004,
-    "eventos-especiais": 0.30000000000000004
+    "decoracao-de-festas": -0.07999999999999963,
+    "lembrancinhas": -0.07999999999999963,
+    "papelaria-e-personalizados": -0.39999999999999947,
+    "eventos-especiais": 0.56
   }
 }
