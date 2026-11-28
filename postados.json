@@ -175,9 +175,15 @@
     "58254264214": 1795836624.031979,
     "22594240741": 1795836624.031979,
     "55455746179": 1795836624.031979,
-    "23992747038": 1795836624.031979
+    "23992747038": 1795836624.031979,
+    "40284503884": 1795868500.3605406,
+    "22297280557": 1795868500.3605406,
+    "58204736053": 1795868500.3605406,
+    "46769476747": 1795868500.3605406,
+    "22193714570": 1795868500.3605406,
+    "23094534705": 1795868500.3605406
   },
-  "last_dispatch": 1795836624.031979,
+  "last_dispatch": 1795868500.3605406,
   "recentes": [
     {
       "n": "beauty of joseon revive eye serum ginseng + retinal 10ml [mini] / 30ml [original]",
@@ -442,6 +448,30 @@
     {
       "n": "36 Etiquetas para Potes de Condimentos Temperos Mantimentos 3,8x3,8cm",
       "t": 1795836624.031979
+    },
+    {
+      "n": "Painel de Festa Retangular Fundo Com Emenda Natal Cenario Tecido Decoração",
+      "t": 1795868500.3605406
+    },
+    {
+      "n": "Tênis Infantil Bebê Batizado Menino Recém Nascido Confortável Benne Kids Promoção Envio Rápido",
+      "t": 1795868500.3605406
+    },
+    {
+      "n": "Cards Futebol Brasileirão 2026 Pacotes Fechado OL Kits com 24, 48,100 ou 200 Unidades Cartas Surpresa Festa Infantil",
+      "t": 1795868500.3605406
+    },
+    {
+      "n": "Kit 30 Unidades Mini Tags Feliz Natal Acrílico Espelhado Dourado 2cm Lembrancinhas Embalagens",
+      "t": 1795868500.3605406
+    },
+    {
+      "n": "Adesivo Personalizado Vinil Transparente Resistente à Água Etiqueta Personalizada",
+      "t": 1795868500.3605406
+    },
+    {
+      "n": "Adesivo Personalizado 4x4cm - Envio 24 Horas",
+      "t": 1795868500.3605406
     }
   ],
   "credito": {
@@ -452,9 +482,9 @@
     "roupas": -0.35747899159664,
     "casa-e-decoracao": 0.06823529411764584,
     "eletrodomesticos": 0.268235294117646,
-    "decoracao-de-festas": -0.07999999999999963,
-    "lembrancinhas": -0.07999999999999963,
-    "papelaria-e-personalizados": -0.39999999999999947,
-    "eventos-especiais": 0.56
+    "decoracao-de-festas": 0.24000000000000044,
+    "lembrancinhas": 0.24000000000000044,
+    "papelaria-e-personalizados": -0.2999999999999994,
+    "eventos-especiais": -0.17999999999999994
   }
 }
